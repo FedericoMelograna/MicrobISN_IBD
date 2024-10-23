@@ -1,0 +1,1419 @@
+.
+├── Code ## The folder where all the code is stored. 
+│   ├── Alpha_beta_diversity ## Code for the Alpha-Beta diversity 
+│   │   ├── CALLING_SCRIPT_Alpha_Beta.R ## All script with CALLING_* are high level scripts calling other scripts 
+│   │   ├── Cohort_based_Alpha_Beta_Diversity.R 
+│   │   ├── Fractional_abundances_Pie_chart
+│   │   │   ├── PIE_chart_caller.R
+│   │   │   ├── PIE_chart_maker.R
+│   │   │   └── Readme.txt
+│   │   ├── Readme.txt
+│   │   ├── alpha_beta_for_TNF_special_taxa.R
+│   │   └── alpha_beta_for_TNF_special_taxa_plus_Responder.R
+│   ├── Calculate_number_ind_and_taxa_per_cohort.R ## Produces a table with the number of individual and taxa for each cohort
+│   ├── Enterotypes_analysis
+│   │   ├── Calculating_ISN_per_Enterotype
+│   │   │   ├── CALLING_SCRIPT.R
+│   │   │   ├── Enterotype_analysis.R
+│   │   │   ├── ISN_construction.R
+│   │   │   ├── ISN_functions.R
+│   │   │   └── Readme.txt
+│   │   ├── Enterotype_Analysis.R
+│   │   ├── Enterotype_Analysis.Rmd
+│   │   ├── Enterotype_Analysis.html
+│   │   └── Readme.txt
+│   ├── Grouping_LIMMA_results_shared_taxon
+│   │   ├── CALLING_comprimer_v3.R
+│   │   ├── Readme.txt
+│   │   ├── comprimer_v3.R
+│   │   └── comprimer_v3_interactions.R
+│   ├── ISN_construction
+│   │   ├── CALLING_SCRIPT.R
+│   │   ├── Calculating_top_20thr_ISN.R
+│   │   ├── ISN_construction.R
+│   │   ├── ISN_functions.R
+│   │   └── Readme.txt
+│   ├── LIMMA
+│   │   ├── Limma_calculation.R
+│   │   ├── Limma_calculation_threshold_20.R
+│   │   ├── Limma_creating_LIMMA_folders_moving_there_all_step2.R
+│   │   ├── Postprocessing
+│   │   │   ├── Computation_significant_pval_LIMMA.R
+│   │   │   └── Computation_significant_pval_LIMMA_thr20.R
+│   │   └── Readme.txt
+│   ├── Prediction
+│   │   ├── Edge_based_prediction
+│   │   │   ├── Edge_based_onlyRFCV_strat
+│   │   │   │   ├── Week0
+│   │   │   │   │   ├── CALLING_SCRIPT_random_forest_internal.R
+│   │   │   │   │   ├── script_computing_Random_forest_internal_v2.R
+│   │   │   │   │   └── script_computing_Random_forest_rfcv_with_stratification.R
+│   │   │   │   └── Week14_24
+│   │   │   │       ├── CALLING_SCRIPT_random_forest_internal.R
+│   │   │   │       ├── script_computing_Random_forest_internal_v2.R
+│   │   │   │       └── script_computing_Random_forest_rfcv_with_stratification.R
+│   │   │   └── SVM_based
+│   │   │       ├── CALLING_SCRIPT_SVM.R
+│   │   │       └── script_computing_svm_v2.R
+│   │   └── Matrices_metrics
+│   │       └── No_AVG
+│   │           ├── CALLING_SCRIPT_random_forest_internal_metrics.R
+│   │           ├── script_computing_Random_forest_internal_kfolds.R
+│   │           └── script_computing_Random_forest_internal_v2_metrics.R
+│   ├── Progession_fractional_abundance_test.R
+│   └── Taxa-level analysis
+│       ├── Comparison_before_after.R
+│       └── Readme.txt
+├── Graphs
+│   ├── Alpha_Beta_explanation.docx
+│   ├── Alpha_beta_diversity
+│   │   ├── Cohort_based_Alpha_Beta_Diversity
+│   │   │   ├── group_CD_TNF_eliminate_14
+│   │   │   │   ├── Beta_diversity_per_Responder_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_CD_TNF_eliminate_24
+│   │   │   │   ├── Beta_diversity_per_Responder_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_CD_TNF_eliminate_w0
+│   │   │   │   ├── Beta_diversity_per_Responder_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_14
+│   │   │   │   ├── Beta_diversity_per_Responder_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_2sd_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_2sd_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_2sd_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_2sd_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_2sd_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_2sd_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_24
+│   │   │   │   ├── Beta_diversity_per_Responder_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_w0
+│   │   │   │   ├── Beta_diversity_per_Responder_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_2sd_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_2sd_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_2sd_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_2sd_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_2sd_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_2sd_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_14
+│   │   │   │   ├── Beta_diversity_per_Responder_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_24
+│   │   │   │   ├── Beta_diversity_per_Responder_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_w0
+│   │   │   │   ├── Beta_diversity_per_Responder_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_CD_UST_eliminate_24
+│   │   │   │   ├── Beta_diversity_per_Responder_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_CD_UST_eliminate_w0
+│   │   │   │   ├── Beta_diversity_per_Responder_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_CD_VDZ_eliminate_14
+│   │   │   │   ├── Beta_diversity_per_Responder_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_CD_VDZ_eliminate_24
+│   │   │   │   ├── Beta_diversity_per_Responder_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_CD_VDZ_eliminate_w0
+│   │   │   │   ├── Beta_diversity_per_Responder_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_UC_TNF_eliminate_14
+│   │   │   │   ├── Beta_diversity_per_Responder_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_UC_TNF_eliminate_w0
+│   │   │   │   ├── Beta_diversity_per_Responder_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_UC_VDZ_eliminate_14
+│   │   │   │   ├── Beta_diversity_per_Responder_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_per_Responder_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   └── group_UC_VDZ_eliminate_w0
+│   │   │       ├── Beta_diversity_per_Responder_Biomarker_outcome_combined.png
+│   │   │       ├── Beta_diversity_per_Responder_Clinical_outcome_combined.png
+│   │   │       ├── Beta_diversity_per_Responder_Endoscopic_outcome_combined.png
+│   │   │       ├── Statistic_alpha.xlsx
+│   │   │       ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │       ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │       ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │       ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │       ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │       ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │       ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │       ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │       └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   ├── TNF_selected_microbes_per_list
+│   │   │   ├── group_CD_TNF_eliminate_w0_selected_microbes_canc
+│   │   │   │   ├── Beta_diversity_NON_SELECTED_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_NON_SELECTED_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_NON_SELECTED_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_SELECTED_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_SELECTED_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_SELECTED_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_togheter_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_togheter_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_togheter_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_CD_TNF_eliminate_w0_selected_microbes_no_canc_un_name
+│   │   │   │   ├── Beta_diversity_NON_SELECTED_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_NON_SELECTED_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_NON_SELECTED_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_SELECTED_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_SELECTED_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_SELECTED_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_togheter_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_togheter_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_togheter_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_w0_selected_microbes_canc
+│   │   │   │   ├── Beta_diversity_NON_SELECTED_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_NON_SELECTED_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_NON_SELECTED_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_SELECTED_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_SELECTED_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_SELECTED_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_togheter_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_togheter_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_togheter_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_w0_selected_microbes_no_canc_un_name
+│   │   │   │   ├── Beta_diversity_NON_SELECTED_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_NON_SELECTED_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_NON_SELECTED_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_SELECTED_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_SELECTED_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_SELECTED_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_togheter_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_togheter_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_togheter_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   ├── group_UC_TNF_eliminate_w0_selected_microbes_canc
+│   │   │   │   ├── Beta_diversity_NON_SELECTED_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_NON_SELECTED_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_NON_SELECTED_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_SELECTED_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_SELECTED_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_SELECTED_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_togheter_Biomarker_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_togheter_Clinical_outcome_combined.png
+│   │   │   │   ├── Beta_diversity_togheter_Endoscopic_outcome_combined.png
+│   │   │   │   ├── Statistic_alpha.xlsx
+│   │   │   │   ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │   │   ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │   │   ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │   │   ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │   │   └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   │   └── group_UC_TNF_eliminate_w0_selected_microbes_no_canc_un_name
+│   │   │       ├── Beta_diversity_NON_SELECTED_Biomarker_outcome_combined.png
+│   │   │       ├── Beta_diversity_NON_SELECTED_Clinical_outcome_combined.png
+│   │   │       ├── Beta_diversity_NON_SELECTED_Endoscopic_outcome_combined.png
+│   │   │       ├── Beta_diversity_SELECTED_Biomarker_outcome_combined.png
+│   │   │       ├── Beta_diversity_SELECTED_Clinical_outcome_combined.png
+│   │   │       ├── Beta_diversity_SELECTED_Endoscopic_outcome_combined.png
+│   │   │       ├── Beta_diversity_togheter_Biomarker_outcome_combined.png
+│   │   │       ├── Beta_diversity_togheter_Clinical_outcome_combined.png
+│   │   │       ├── Beta_diversity_togheter_Endoscopic_outcome_combined.png
+│   │   │       ├── Statistic_alpha.xlsx
+│   │   │       ├── TEST_WILCOXON_age_Biomarker_outcome_combined.rds
+│   │   │       ├── TEST_WILCOXON_age_Clinical_outcome_combined.rds
+│   │   │       ├── TEST_WILCOXON_age_Endoscopic_outcome_combined.rds
+│   │   │       ├── TEST_WILCOXON_age_SELECTED_Endoscopic_outcome_combined.rds
+│   │   │       ├── Violin_Shannon_alphadiv_Biomarker.png
+│   │   │       ├── Violin_Shannon_alphadiv_Clinical.png
+│   │   │       ├── Violin_Shannon_alphadiv_Endoscopic.png
+│   │   │       ├── Violin_Shannon_alphadiv_ds_Biomarker.png
+│   │   │       ├── Violin_Shannon_alphadiv_ds_Clinical.png
+│   │   │       └── Violin_Shannon_alphadiv_ds_Endoscopic.png
+│   │   └── TNF_selected_microbes_per_list_resp_vs_non_resp
+│   │       ├── CD_TNF_eliminate_w0_canc_divided_responder
+│   │       │   ├── Beta_diversity_NONSELECTED_microbes__Biomarker_outcome_combined.png
+│   │       │   ├── Beta_diversity_NONSELECTED_microbes__Clinical_outcome_combined.png
+│   │       │   ├── Beta_diversity_NONSELECTED_microbes__Endoscopic_outcome_combined.png
+│   │       │   ├── Beta_diversity_SELECTED_microbes__Biomarker_outcome_combined.png
+│   │       │   ├── Beta_diversity_SELECTED_microbes__Clinical_outcome_combined.png
+│   │       │   ├── Beta_diversity_SELECTED_microbes__Endoscopic_outcome_combined.png
+│   │       │   ├── Statistic_alpha_NonSelected.xlsx
+│   │       │   ├── Statistic_alpha_Selected.xlsx
+│   │       │   ├── TEST_WILCOXON_age_NonSELECTED_Biomarker_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_NonSELECTED_Clinical_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_NonSELECTED_Endoscopic_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_SELECTED_Biomarker_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_SELECTED_Clinical_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_SELECTED_Endoscopic_outcome_combined.rds
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_Biomarker.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_Clinical.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_Endoscopic.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_ds_Biomarker.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_ds_Clinical.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_ds_Endoscopic.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_Biomarker.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_Clinical.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_Endoscopic.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_ds_Biomarker.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_ds_Clinical.png
+│   │       │   └── Violin_Shannon_SELECTED_alphadiv_ds_Endoscopic.png
+│   │       ├── CD_TNF_eliminate_w0_no_canc_un_name_divided_responder
+│   │       │   ├── Beta_diversity_NONSELECTED_microbes__Biomarker_outcome_combined.png
+│   │       │   ├── Beta_diversity_NONSELECTED_microbes__Clinical_outcome_combined.png
+│   │       │   ├── Beta_diversity_NONSELECTED_microbes__Endoscopic_outcome_combined.png
+│   │       │   ├── Beta_diversity_SELECTED_microbes__Biomarker_outcome_combined.png
+│   │       │   ├── Beta_diversity_SELECTED_microbes__Clinical_outcome_combined.png
+│   │       │   ├── Beta_diversity_SELECTED_microbes__Endoscopic_outcome_combined.png
+│   │       │   ├── Statistic_alpha_NonSelected.xlsx
+│   │       │   ├── Statistic_alpha_Selected.xlsx
+│   │       │   ├── TEST_WILCOXON_age_NonSELECTED_Biomarker_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_NonSELECTED_Clinical_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_NonSELECTED_Endoscopic_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_SELECTED_Biomarker_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_SELECTED_Clinical_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_SELECTED_Endoscopic_outcome_combined.rds
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_Biomarker.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_Clinical.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_Endoscopic.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_ds_Biomarker.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_ds_Clinical.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_ds_Endoscopic.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_Biomarker.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_Clinical.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_Endoscopic.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_ds_Biomarker.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_ds_Clinical.png
+│   │       │   └── Violin_Shannon_SELECTED_alphadiv_ds_Endoscopic.png
+│   │       ├── CD_UC_TNF_eliminate_w0_canc_divided_responder
+│   │       │   ├── Beta_diversity_NONSELECTED_microbes__Biomarker_outcome_combined.png
+│   │       │   ├── Beta_diversity_NONSELECTED_microbes__Clinical_outcome_combined.png
+│   │       │   ├── Beta_diversity_NONSELECTED_microbes__Endoscopic_outcome_combined.png
+│   │       │   ├── Beta_diversity_SELECTED_microbes__Biomarker_outcome_combined.png
+│   │       │   ├── Beta_diversity_SELECTED_microbes__Clinical_outcome_combined.png
+│   │       │   ├── Beta_diversity_SELECTED_microbes__Endoscopic_outcome_combined.png
+│   │       │   ├── Statistic_alpha_NonSelected.xlsx
+│   │       │   ├── Statistic_alpha_Selected.xlsx
+│   │       │   ├── TEST_WILCOXON_age_NonSELECTED_Biomarker_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_NonSELECTED_Clinical_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_NonSELECTED_Endoscopic_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_SELECTED_Biomarker_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_SELECTED_Clinical_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_SELECTED_Endoscopic_outcome_combined.rds
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_Biomarker.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_Clinical.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_Endoscopic.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_ds_Biomarker.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_ds_Clinical.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_ds_Endoscopic.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_Biomarker.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_Clinical.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_Endoscopic.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_ds_Biomarker.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_ds_Clinical.png
+│   │       │   └── Violin_Shannon_SELECTED_alphadiv_ds_Endoscopic.png
+│   │       ├── CD_UC_TNF_eliminate_w0_no_canc_un_name_divided_responder
+│   │       │   ├── Beta_diversity_NONSELECTED_microbes__Biomarker_outcome_combined.png
+│   │       │   ├── Beta_diversity_NONSELECTED_microbes__Clinical_outcome_combined.png
+│   │       │   ├── Beta_diversity_NONSELECTED_microbes__Endoscopic_outcome_combined.png
+│   │       │   ├── Beta_diversity_SELECTED_microbes__Biomarker_outcome_combined.png
+│   │       │   ├── Beta_diversity_SELECTED_microbes__Clinical_outcome_combined.png
+│   │       │   ├── Beta_diversity_SELECTED_microbes__Endoscopic_outcome_combined.png
+│   │       │   ├── Statistic_alpha_NonSelected.xlsx
+│   │       │   ├── Statistic_alpha_Selected.xlsx
+│   │       │   ├── TEST_WILCOXON_age_NonSELECTED_Biomarker_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_NonSELECTED_Clinical_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_NonSELECTED_Endoscopic_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_SELECTED_Biomarker_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_SELECTED_Clinical_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_SELECTED_Endoscopic_outcome_combined.rds
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_Biomarker.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_Clinical.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_Endoscopic.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_ds_Biomarker.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_ds_Clinical.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_ds_Endoscopic.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_Biomarker.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_Clinical.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_Endoscopic.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_ds_Biomarker.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_ds_Clinical.png
+│   │       │   └── Violin_Shannon_SELECTED_alphadiv_ds_Endoscopic.png
+│   │       ├── UC_TNF_eliminate_w0_canc_divided_responder
+│   │       │   ├── Beta_diversity_NONSELECTED_microbes__Biomarker_outcome_combined.png
+│   │       │   ├── Beta_diversity_NONSELECTED_microbes__Clinical_outcome_combined.png
+│   │       │   ├── Beta_diversity_NONSELECTED_microbes__Endoscopic_outcome_combined.png
+│   │       │   ├── Beta_diversity_SELECTED_microbes__Biomarker_outcome_combined.png
+│   │       │   ├── Beta_diversity_SELECTED_microbes__Clinical_outcome_combined.png
+│   │       │   ├── Beta_diversity_SELECTED_microbes__Endoscopic_outcome_combined.png
+│   │       │   ├── Statistic_alpha_NonSelected.xlsx
+│   │       │   ├── Statistic_alpha_Selected.xlsx
+│   │       │   ├── TEST_WILCOXON_age_NonSELECTED_Biomarker_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_NonSELECTED_Clinical_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_NonSELECTED_Endoscopic_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_SELECTED_Biomarker_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_SELECTED_Clinical_outcome_combined.rds
+│   │       │   ├── TEST_WILCOXON_age_SELECTED_Endoscopic_outcome_combined.rds
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_Biomarker.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_Clinical.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_Endoscopic.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_ds_Biomarker.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_ds_Clinical.png
+│   │       │   ├── Violin_Shannon_NonSELECTED_alphadiv_ds_Endoscopic.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_Biomarker.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_Clinical.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_Endoscopic.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_ds_Biomarker.png
+│   │       │   ├── Violin_Shannon_SELECTED_alphadiv_ds_Clinical.png
+│   │       │   └── Violin_Shannon_SELECTED_alphadiv_ds_Endoscopic.png
+│   │       └── UC_TNF_eliminate_w0_no_canc_un_name_divided_responder
+│   │           ├── Beta_diversity_NONSELECTED_microbes__Biomarker_outcome_combined.png
+│   │           ├── Beta_diversity_NONSELECTED_microbes__Clinical_outcome_combined.png
+│   │           ├── Beta_diversity_NONSELECTED_microbes__Endoscopic_outcome_combined.png
+│   │           ├── Beta_diversity_SELECTED_microbes__Biomarker_outcome_combined.png
+│   │           ├── Beta_diversity_SELECTED_microbes__Clinical_outcome_combined.png
+│   │           ├── Beta_diversity_SELECTED_microbes__Endoscopic_outcome_combined.png
+│   │           ├── Statistic_alpha_NonSelected.xlsx
+│   │           ├── Statistic_alpha_Selected.xlsx
+│   │           ├── TEST_WILCOXON_age_NonSELECTED_Biomarker_outcome_combined.rds
+│   │           ├── TEST_WILCOXON_age_NonSELECTED_Clinical_outcome_combined.rds
+│   │           ├── TEST_WILCOXON_age_NonSELECTED_Endoscopic_outcome_combined.rds
+│   │           ├── TEST_WILCOXON_age_SELECTED_Biomarker_outcome_combined.rds
+│   │           ├── TEST_WILCOXON_age_SELECTED_Clinical_outcome_combined.rds
+│   │           ├── TEST_WILCOXON_age_SELECTED_Endoscopic_outcome_combined.rds
+│   │           ├── Violin_Shannon_NonSELECTED_alphadiv_Biomarker.png
+│   │           ├── Violin_Shannon_NonSELECTED_alphadiv_Clinical.png
+│   │           ├── Violin_Shannon_NonSELECTED_alphadiv_Endoscopic.png
+│   │           ├── Violin_Shannon_NonSELECTED_alphadiv_ds_Biomarker.png
+│   │           ├── Violin_Shannon_NonSELECTED_alphadiv_ds_Clinical.png
+│   │           ├── Violin_Shannon_NonSELECTED_alphadiv_ds_Endoscopic.png
+│   │           ├── Violin_Shannon_SELECTED_alphadiv_Biomarker.png
+│   │           ├── Violin_Shannon_SELECTED_alphadiv_Clinical.png
+│   │           ├── Violin_Shannon_SELECTED_alphadiv_Endoscopic.png
+│   │           ├── Violin_Shannon_SELECTED_alphadiv_ds_Biomarker.png
+│   │           ├── Violin_Shannon_SELECTED_alphadiv_ds_Clinical.png
+│   │           └── Violin_Shannon_SELECTED_alphadiv_ds_Endoscopic.png
+│   ├── Analysis_Enterotype
+│   │   ├── subgraph_bact2_bact2.pdf
+│   │   ├── subgraph_bact2_bact2.png
+│   │   ├── subgraph_bact2_other.pdf
+│   │   ├── subgraph_bact2_other.png
+│   │   └── subgraph_other_other.pdf
+│   ├── Microbial_Fractional_abundances
+│   │   ├── Class_level_graphs
+│   │   │   ├── group_CD_TNF_eliminate_14_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_TNF_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_TNF_eliminate_14_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_TNF_eliminate_24_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_TNF_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_TNF_eliminate_24_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_TNF_eliminate_w0_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_TNF_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_TNF_eliminate_w0_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_14_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_14_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_24_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_24_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_w0_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_w0_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UC_VDZ_Not_eliminate_14_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UC_VDZ_Not_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UC_VDZ_Not_eliminate_14_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UC_VDZ_Not_eliminate_24_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UC_VDZ_Not_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UC_VDZ_Not_eliminate_24_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UC_VDZ_Not_eliminate_w0_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UC_VDZ_Not_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UC_VDZ_Not_eliminate_w0_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_14_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_14_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_24_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_24_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_w0_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_w0_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UST_Not_eliminate_24_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UST_Not_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UST_Not_eliminate_24_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UST_Not_eliminate_w0_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UST_Not_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UST_Not_eliminate_w0_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UST_eliminate_24_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UST_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UST_eliminate_24_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UST_eliminate_w0_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UST_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UST_eliminate_w0_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_VDZ_eliminate_14_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_VDZ_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_VDZ_eliminate_14_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_VDZ_eliminate_24_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_VDZ_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_VDZ_eliminate_24_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_VDZ_eliminate_w0_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_VDZ_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_VDZ_eliminate_w0_Fractional_abundance_piechart.png
+│   │   │   ├── group_UC_TNF_eliminate_14_Fractional_abundance_barplot.png
+│   │   │   ├── group_UC_TNF_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_UC_TNF_eliminate_14_Fractional_abundance_piechart.png
+│   │   │   ├── group_UC_TNF_eliminate_w0_Fractional_abundance_barplot.png
+│   │   │   ├── group_UC_TNF_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_UC_TNF_eliminate_w0_Fractional_abundance_piechart.png
+│   │   │   ├── group_UC_VDZ_eliminate_14_Fractional_abundance_barplot.png
+│   │   │   ├── group_UC_VDZ_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_UC_VDZ_eliminate_14_Fractional_abundance_piechart.png
+│   │   │   ├── group_UC_VDZ_eliminate_w0_Fractional_abundance_barplot.png
+│   │   │   ├── group_UC_VDZ_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │   │   └── group_UC_VDZ_eliminate_w0_Fractional_abundance_piechart.png
+│   │   ├── Family_level_graphs
+│   │   │   ├── group_CD_TNF_eliminate_14_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_TNF_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_TNF_eliminate_14_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_TNF_eliminate_24_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_TNF_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_TNF_eliminate_24_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_TNF_eliminate_w0_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_TNF_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_TNF_eliminate_w0_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_14_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_14_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_24_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_24_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_w0_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UC_TNF_eliminate_w0_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UC_VDZ_Not_eliminate_14_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UC_VDZ_Not_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UC_VDZ_Not_eliminate_14_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UC_VDZ_Not_eliminate_24_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UC_VDZ_Not_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UC_VDZ_Not_eliminate_24_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UC_VDZ_Not_eliminate_w0_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UC_VDZ_Not_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UC_VDZ_Not_eliminate_w0_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_14_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_14_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_24_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_24_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_w0_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UC_VDZ_eliminate_w0_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UST_Not_eliminate_24_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UST_Not_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UST_Not_eliminate_24_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UST_Not_eliminate_w0_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UST_Not_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UST_Not_eliminate_w0_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UST_eliminate_24_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UST_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UST_eliminate_24_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_UST_eliminate_w0_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_UST_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_UST_eliminate_w0_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_VDZ_eliminate_14_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_VDZ_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_VDZ_eliminate_14_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_VDZ_eliminate_24_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_VDZ_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_VDZ_eliminate_24_Fractional_abundance_piechart.png
+│   │   │   ├── group_CD_VDZ_eliminate_w0_Fractional_abundance_barplot.png
+│   │   │   ├── group_CD_VDZ_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_CD_VDZ_eliminate_w0_Fractional_abundance_piechart.png
+│   │   │   ├── group_UC_TNF_eliminate_14_Fractional_abundance_barplot.png
+│   │   │   ├── group_UC_TNF_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_UC_TNF_eliminate_14_Fractional_abundance_piechart.png
+│   │   │   ├── group_UC_TNF_eliminate_w0_Fractional_abundance_barplot.png
+│   │   │   ├── group_UC_TNF_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_UC_TNF_eliminate_w0_Fractional_abundance_piechart.png
+│   │   │   ├── group_UC_VDZ_eliminate_14_Fractional_abundance_barplot.png
+│   │   │   ├── group_UC_VDZ_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │   │   ├── group_UC_VDZ_eliminate_14_Fractional_abundance_piechart.png
+│   │   │   ├── group_UC_VDZ_eliminate_w0_Fractional_abundance_barplot.png
+│   │   │   ├── group_UC_VDZ_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │   │   └── group_UC_VDZ_eliminate_w0_Fractional_abundance_piechart.png
+│   │   └── Phylum_level_graphs
+│   │       ├── group_CD_TNF_eliminate_14_Fractional_abundance_barplot.png
+│   │       ├── group_CD_TNF_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_TNF_eliminate_14_Fractional_abundance_piechart.png
+│   │       ├── group_CD_TNF_eliminate_24_Fractional_abundance_barplot.png
+│   │       ├── group_CD_TNF_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_TNF_eliminate_24_Fractional_abundance_piechart.png
+│   │       ├── group_CD_TNF_eliminate_w0_Fractional_abundance_barplot.png
+│   │       ├── group_CD_TNF_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_TNF_eliminate_w0_Fractional_abundance_piechart.png
+│   │       ├── group_CD_UC_TNF_eliminate_14_Fractional_abundance_barplot.png
+│   │       ├── group_CD_UC_TNF_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_UC_TNF_eliminate_14_Fractional_abundance_piechart.png
+│   │       ├── group_CD_UC_TNF_eliminate_24_Fractional_abundance_barplot.png
+│   │       ├── group_CD_UC_TNF_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_UC_TNF_eliminate_24_Fractional_abundance_piechart.png
+│   │       ├── group_CD_UC_TNF_eliminate_w0_Fractional_abundance_barplot.png
+│   │       ├── group_CD_UC_TNF_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_UC_TNF_eliminate_w0_Fractional_abundance_piechart.png
+│   │       ├── group_CD_UC_VDZ_Not_eliminate_14_Fractional_abundance_barplot.png
+│   │       ├── group_CD_UC_VDZ_Not_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_UC_VDZ_Not_eliminate_14_Fractional_abundance_piechart.png
+│   │       ├── group_CD_UC_VDZ_Not_eliminate_24_Fractional_abundance_barplot.png
+│   │       ├── group_CD_UC_VDZ_Not_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_UC_VDZ_Not_eliminate_24_Fractional_abundance_piechart.png
+│   │       ├── group_CD_UC_VDZ_Not_eliminate_w0_Fractional_abundance_barplot.png
+│   │       ├── group_CD_UC_VDZ_Not_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_UC_VDZ_Not_eliminate_w0_Fractional_abundance_piechart.png
+│   │       ├── group_CD_UC_VDZ_eliminate_14_Fractional_abundance_barplot.png
+│   │       ├── group_CD_UC_VDZ_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_UC_VDZ_eliminate_14_Fractional_abundance_piechart.png
+│   │       ├── group_CD_UC_VDZ_eliminate_24_Fractional_abundance_barplot.png
+│   │       ├── group_CD_UC_VDZ_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_UC_VDZ_eliminate_24_Fractional_abundance_piechart.png
+│   │       ├── group_CD_UC_VDZ_eliminate_w0_Fractional_abundance_barplot.png
+│   │       ├── group_CD_UC_VDZ_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_UC_VDZ_eliminate_w0_Fractional_abundance_piechart.png
+│   │       ├── group_CD_UST_Not_eliminate_24_Fractional_abundance_barplot.png
+│   │       ├── group_CD_UST_Not_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_UST_Not_eliminate_24_Fractional_abundance_piechart.png
+│   │       ├── group_CD_UST_Not_eliminate_w0_Fractional_abundance_barplot.png
+│   │       ├── group_CD_UST_Not_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_UST_Not_eliminate_w0_Fractional_abundance_piechart.png
+│   │       ├── group_CD_UST_eliminate_24_Fractional_abundance_barplot.png
+│   │       ├── group_CD_UST_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_UST_eliminate_24_Fractional_abundance_piechart.png
+│   │       ├── group_CD_UST_eliminate_w0_Fractional_abundance_barplot.png
+│   │       ├── group_CD_UST_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_UST_eliminate_w0_Fractional_abundance_piechart.png
+│   │       ├── group_CD_VDZ_eliminate_14_Fractional_abundance_barplot.png
+│   │       ├── group_CD_VDZ_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_VDZ_eliminate_14_Fractional_abundance_piechart.png
+│   │       ├── group_CD_VDZ_eliminate_24_Fractional_abundance_barplot.png
+│   │       ├── group_CD_VDZ_eliminate_24_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_VDZ_eliminate_24_Fractional_abundance_piechart.png
+│   │       ├── group_CD_VDZ_eliminate_w0_Fractional_abundance_barplot.png
+│   │       ├── group_CD_VDZ_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │       ├── group_CD_VDZ_eliminate_w0_Fractional_abundance_piechart.png
+│   │       ├── group_UC_TNF_eliminate_14_Fractional_abundance_barplot.png
+│   │       ├── group_UC_TNF_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │       ├── group_UC_TNF_eliminate_14_Fractional_abundance_piechart.png
+│   │       ├── group_UC_TNF_eliminate_w0_Fractional_abundance_barplot.png
+│   │       ├── group_UC_TNF_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │       ├── group_UC_TNF_eliminate_w0_Fractional_abundance_piechart.png
+│   │       ├── group_UC_VDZ_eliminate_14_Fractional_abundance_barplot.png
+│   │       ├── group_UC_VDZ_eliminate_14_Fractional_abundance_barplot_perc.png
+│   │       ├── group_UC_VDZ_eliminate_14_Fractional_abundance_piechart.png
+│   │       ├── group_UC_VDZ_eliminate_w0_Fractional_abundance_barplot.png
+│   │       ├── group_UC_VDZ_eliminate_w0_Fractional_abundance_barplot_perc.png
+│   │       └── group_UC_VDZ_eliminate_w0_Fractional_abundance_piechart.png
+│   ├── Population_based_connections
+│   │   ├── w_0
+│   │   │   ├── OLD_ENTEROTYPE_BINARY
+│   │   │   │   ├── CD_TNF_0_Clinical_Enterotype_global_Clinical_BINARY.png
+│   │   │   │   ├── CD_TNF_0_Clinical_Enterotype_noresp_Clinical_BINARY.png
+│   │   │   │   ├── CD_TNF_0_Clinical_Enterotype_resp_Clinical_BINARY.png
+│   │   │   │   ├── CD_UC_TNF_0_Clinical_Enterotype_global_Clinical_BINARY.png
+│   │   │   │   ├── CD_UC_TNF_0_Clinical_Enterotype_noresp_Clinical_BINARY.png
+│   │   │   │   ├── CD_UC_TNF_0_Clinical_Enterotype_resp_Clinical_BINARY.png
+│   │   │   │   ├── CD_UC_VDZ_0_Clinical_Enterotype_global_Clinical_BINARY.png
+│   │   │   │   ├── CD_UC_VDZ_0_Clinical_Enterotype_noresp_Clinical_BINARY.png
+│   │   │   │   ├── CD_UC_VDZ_0_Clinical_Enterotype_resp_Clinical_BINARY.png
+│   │   │   │   ├── CD_UST_0_Clinical_Enterotype_global_Clinical_BINARY.png
+│   │   │   │   ├── CD_UST_0_Clinical_Enterotype_noresp_Clinical_BINARY.png
+│   │   │   │   ├── CD_UST_0_Clinical_Enterotype_resp_Clinical_BINARY.png
+│   │   │   │   ├── CD_VDZ_0_Clinical_Enterotype_global_Clinical_BINARY.png
+│   │   │   │   ├── CD_VDZ_0_Clinical_Enterotype_noresp_Clinical_BINARY.png
+│   │   │   │   ├── CD_VDZ_0_Clinical_Enterotype_resp_Clinical_BINARY.png
+│   │   │   │   ├── UC_TNF_0_Clinical_Enterotype_global_Clinical_BINARY.png
+│   │   │   │   ├── UC_TNF_0_Clinical_Enterotype_noresp_Clinical_BINARY.png
+│   │   │   │   ├── UC_TNF_0_Clinical_Enterotype_resp_Clinical_BINARY.png
+│   │   │   │   ├── UC_VDZ_0_Clinical_Enterotype_global_Clinical_BINARY.png
+│   │   │   │   ├── UC_VDZ_0_Clinical_Enterotype_noresp_Clinical_BINARY.png
+│   │   │   │   └── UC_VDZ_0_Clinical_Enterotype_resp_Clinical_BINARY.png
+│   │   │   ├── OLD_ENTEROTYPE_CONTINUOUS
+│   │   │   │   ├── CD_TNF_0_Clinical_Enterotype_global_Clinical_CONTINUOUS.png
+│   │   │   │   ├── CD_TNF_0_Clinical_Enterotype_noresp_Clinical_CONTINUOUS.png
+│   │   │   │   ├── CD_TNF_0_Clinical_Enterotype_resp_Clinical_CONTINUOUS.png
+│   │   │   │   ├── CD_UC_TNF_0_Clinical_Enterotype_global_Clinical_CONTINUOUS.png
+│   │   │   │   ├── CD_UC_TNF_0_Clinical_Enterotype_noresp_Clinical_CONTINUOUS.png
+│   │   │   │   ├── CD_UC_TNF_0_Clinical_Enterotype_resp_Clinical_CONTINUOUS.png
+│   │   │   │   ├── CD_UC_VDZ_0_Clinical_Enterotype_global_Clinical_CONTINUOUS.png
+│   │   │   │   ├── CD_UC_VDZ_0_Clinical_Enterotype_noresp_Clinical_CONTINUOUS.png
+│   │   │   │   ├── CD_UC_VDZ_0_Clinical_Enterotype_resp_Clinical_CONTINUOUS.png
+│   │   │   │   ├── CD_UST_0_Clinical_Enterotype_global_Clinical_CONTINUOUS.png
+│   │   │   │   ├── CD_UST_0_Clinical_Enterotype_noresp_Clinical_CONTINUOUS.png
+│   │   │   │   └── CD_UST_0_Clinical_Enterotype_resp_Clinical_CONTINUOUS.png
+│   │   │   ├── PHYLUM_COMBINED_BINARY
+│   │   │   │   ├── group_CD_TNF_eliminate_BINARY_withEDGE_LABEL.png
+│   │   │   │   ├── group_CD_UC_TNF_eliminate_BINARY_withEDGE_LABEL.png
+│   │   │   │   ├── group_CD_UC_VDZ_Not_eliminate_BINARY_withEDGE_LABEL.png
+│   │   │   │   ├── group_CD_UC_VDZ_eliminate_BINARY_withEDGE_LABEL.png
+│   │   │   │   ├── group_CD_UST_Not_eliminate_BINARY_withEDGE_LABEL.png
+│   │   │   │   ├── group_CD_UST_eliminate_BINARY_withEDGE_LABEL.png
+│   │   │   │   ├── group_CD_VDZ_eliminate_BINARY_withEDGE_LABEL.png
+│   │   │   │   ├── group_UC_TNF_eliminate_BINARY_withEDGE_LABEL.png
+│   │   │   │   └── group_UC_VDZ_eliminate_BINARY_withEDGE_LABEL.png
+│   │   │   ├── PHYLUM_COMBINED_CONTINUOUS
+│   │   │   │   ├── group_CD_TNF_eliminate_CONTINUOUS_withEDGE_LABEL.png
+│   │   │   │   ├── group_CD_UC_TNF_eliminate_CONTINUOUS_withEDGE_LABEL.png
+│   │   │   │   ├── group_CD_UC_VDZ_Not_eliminate_CONTINUOUS_withEDGE_LABEL.png
+│   │   │   │   ├── group_CD_UC_VDZ_eliminate_CONTINUOUS_withEDGE_LABEL.png
+│   │   │   │   ├── group_CD_UST_Not_eliminate_CONTINUOUS_withEDGE_LABEL.png
+│   │   │   │   ├── group_CD_UST_eliminate_CONTINUOUS_withEDGE_LABEL.png
+│   │   │   │   ├── group_CD_VDZ_eliminate_CONTINUOUS_withEDGE_LABEL.png
+│   │   │   │   ├── group_UC_TNF_eliminate_CONTINUOUS_withEDGE_LABEL.png
+│   │   │   │   └── group_UC_VDZ_eliminate_CONTINUOUS_withEDGE_LABEL.png
+│   │   │   └── TAXAS_NETWORK
+│   │   │       ├── group_CD_TNF_eliminate_MAGMA_2ndlevel_PHYLUM.png
+│   │   │       ├── group_CD_UC_TNF_eliminate_MAGMA_2ndlevel_PHYLUM.png
+│   │   │       ├── group_CD_UC_VDZ_Not_eliminate_MAGMA_2ndlevel_PHYLUM.png
+│   │   │       ├── group_CD_UC_VDZ_eliminate_MAGMA_2ndlevel_PHYLUM.png
+│   │   │       ├── group_CD_UST_Not_eliminate_MAGMA_2ndlevel_PHYLUM.png
+│   │   │       ├── group_CD_UST_eliminate_MAGMA_2ndlevel_PHYLUM.png
+│   │   │       ├── group_CD_VDZ_eliminate_MAGMA_2ndlevel_PHYLUM.png
+│   │   │       ├── group_UC_TNF_eliminate_MAGMA_2ndlevel_PHYLUM.png
+│   │   │       └── group_UC_VDZ_eliminate_MAGMA_2ndlevel_PHYLUM.png
+│   │   └── w_14_24
+│   │       ├── OLD_ENTEROTYPE_BINARY
+│   │       │   ├── CD_TNF_14_Clinical_Enterotype_global_Clinical_BINARY.png
+│   │       │   ├── CD_TNF_14_Clinical_Enterotype_resp_Clinical_BINARY.png
+│   │       │   ├── CD_TNF_24_Clinical_Enterotype_global_Clinical_BINARY.png
+│   │       │   ├── CD_TNF_24_Clinical_Enterotype_resp_Clinical_BINARY.png
+│   │       │   ├── CD_UC_TNF_14_Clinical_Enterotype_global_Clinical_BINARY.png
+│   │       │   ├── CD_UC_TNF_14_Clinical_Enterotype_noresp_Clinical_BINARY.png
+│   │       │   ├── CD_UC_TNF_14_Clinical_Enterotype_resp_Clinical_BINARY.png
+│   │       │   ├── CD_UC_TNF_24_Clinical_Enterotype_global_Clinical_BINARY.png
+│   │       │   ├── CD_UC_TNF_24_Clinical_Enterotype_resp_Clinical_BINARY.png
+│   │       │   ├── CD_UC_VDZ_14_Clinical_Enterotype_global_Clinical_BINARY.png
+│   │       │   ├── CD_UC_VDZ_14_Clinical_Enterotype_noresp_Clinical_BINARY.png
+│   │       │   ├── CD_UC_VDZ_14_Clinical_Enterotype_resp_Clinical_BINARY.png
+│   │       │   ├── CD_UC_VDZ_24_Clinical_Enterotype_global_Clinical_BINARY.png
+│   │       │   ├── CD_UC_VDZ_24_Clinical_Enterotype_noresp_Clinical_BINARY.png
+│   │       │   ├── CD_UC_VDZ_24_Clinical_Enterotype_resp_Clinical_BINARY.png
+│   │       │   ├── CD_UST_24_Clinical_Enterotype_global_Clinical_BINARY.png
+│   │       │   ├── CD_UST_24_Clinical_Enterotype_noresp_Clinical_BINARY.png
+│   │       │   ├── CD_UST_24_Clinical_Enterotype_resp_Clinical_BINARY.png
+│   │       │   ├── CD_VDZ_14_Clinical_Enterotype_global_Clinical_BINARY.png
+│   │       │   ├── CD_VDZ_14_Clinical_Enterotype_resp_Clinical_BINARY.png
+│   │       │   ├── CD_VDZ_24_Clinical_Enterotype_global_Clinical_BINARY.png
+│   │       │   ├── CD_VDZ_24_Clinical_Enterotype_noresp_Clinical_BINARY.png
+│   │       │   ├── CD_VDZ_24_Clinical_Enterotype_resp_Clinical_BINARY.png
+│   │       │   ├── UC_TNF_14_Clinical_Enterotype_global_Clinical_BINARY.png
+│   │       │   ├── UC_TNF_14_Clinical_Enterotype_noresp_Clinical_BINARY.png
+│   │       │   ├── UC_TNF_14_Clinical_Enterotype_resp_Clinical_BINARY.png
+│   │       │   ├── UC_VDZ_14_Clinical_Enterotype_global_Clinical_BINARY.png
+│   │       │   ├── UC_VDZ_14_Clinical_Enterotype_noresp_Clinical_BINARY.png
+│   │       │   └── UC_VDZ_14_Clinical_Enterotype_resp_Clinical_BINARY.png
+│   │       ├── OLD_ENTEROTYPE_CONTINUOUS
+│   │       │   ├── CD_TNF_14_Clinical_Enterotype_global_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_TNF_14_Clinical_Enterotype_resp_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_TNF_24_Clinical_Enterotype_global_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_TNF_24_Clinical_Enterotype_resp_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_UC_TNF_14_Clinical_Enterotype_global_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_UC_TNF_14_Clinical_Enterotype_noresp_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_UC_TNF_14_Clinical_Enterotype_resp_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_UC_TNF_24_Clinical_Enterotype_global_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_UC_TNF_24_Clinical_Enterotype_resp_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_UC_VDZ_14_Clinical_Enterotype_global_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_UC_VDZ_14_Clinical_Enterotype_noresp_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_UC_VDZ_14_Clinical_Enterotype_resp_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_UC_VDZ_24_Clinical_Enterotype_global_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_UC_VDZ_24_Clinical_Enterotype_noresp_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_UC_VDZ_24_Clinical_Enterotype_resp_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_UST_24_Clinical_Enterotype_global_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_UST_24_Clinical_Enterotype_noresp_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_UST_24_Clinical_Enterotype_resp_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_VDZ_14_Clinical_Enterotype_global_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_VDZ_14_Clinical_Enterotype_resp_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_VDZ_24_Clinical_Enterotype_global_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_VDZ_24_Clinical_Enterotype_noresp_Clinical_CONTINUOUS.png
+│   │       │   ├── CD_VDZ_24_Clinical_Enterotype_resp_Clinical_CONTINUOUS.png
+│   │       │   ├── UC_TNF_14_Clinical_Enterotype_global_Clinical_CONTINUOUS.png
+│   │       │   ├── UC_TNF_14_Clinical_Enterotype_noresp_Clinical_CONTINUOUS.png
+│   │       │   ├── UC_TNF_14_Clinical_Enterotype_resp_Clinical_CONTINUOUS.png
+│   │       │   ├── UC_VDZ_14_Clinical_Enterotype_global_Clinical_CONTINUOUS.png
+│   │       │   ├── UC_VDZ_14_Clinical_Enterotype_noresp_Clinical_CONTINUOUS.png
+│   │       │   └── UC_VDZ_14_Clinical_Enterotype_resp_Clinical_CONTINUOUS.png
+│   │       ├── PHYLUM_COMBINED_BINARY
+│   │       │   ├── group_CD_TNF_eliminate_BINARY_withEDGE_LABEL.png
+│   │       │   ├── group_CD_UC_TNF_eliminate_BINARY_withEDGE_LABEL.png
+│   │       │   ├── group_CD_UC_VDZ_Not_eliminate_BINARY_withEDGE_LABEL.png
+│   │       │   ├── group_CD_UC_VDZ_eliminate_BINARY_withEDGE_LABEL.png
+│   │       │   ├── group_CD_UST_Not_eliminate_BINARY_withEDGE_LABEL.png
+│   │       │   ├── group_CD_UST_eliminate_BINARY_withEDGE_LABEL.png
+│   │       │   ├── group_CD_VDZ_eliminate_BINARY_withEDGE_LABEL.png
+│   │       │   ├── group_UC_TNF_eliminate_BINARY_withEDGE_LABEL.png
+│   │       │   └── group_UC_VDZ_eliminate_BINARY_withEDGE_LABEL.png
+│   │       ├── PHYLUM_COMBINED_CONTINUOUS
+│   │       │   ├── group_CD_TNF_eliminate_CONTINUOUS_withEDGE_LABEL.png
+│   │       │   ├── group_CD_UC_TNF_eliminate_CONTINUOUS_withEDGE_LABEL.png
+│   │       │   ├── group_CD_UC_VDZ_Not_eliminate_CONTINUOUS_withEDGE_LABEL.png
+│   │       │   ├── group_CD_UC_VDZ_eliminate_CONTINUOUS_withEDGE_LABEL.png
+│   │       │   ├── group_CD_UST_Not_eliminate_CONTINUOUS_withEDGE_LABEL.png
+│   │       │   ├── group_CD_UST_eliminate_CONTINUOUS_withEDGE_LABEL.png
+│   │       │   ├── group_CD_VDZ_eliminate_CONTINUOUS_withEDGE_LABEL.png
+│   │       │   ├── group_UC_TNF_eliminate_CONTINUOUS_withEDGE_LABEL.png
+│   │       │   └── group_UC_VDZ_eliminate_CONTINUOUS_withEDGE_LABEL.png
+│   │       └── TAXA_NETWORK
+│   │           ├── group_CD_TNF_eliminate_MAGMA_2ndlevel_PHYLUM.png
+│   │           ├── group_CD_UC_TNF_eliminate_MAGMA_2ndlevel_PHYLUM.png
+│   │           ├── group_CD_UC_VDZ_Not_eliminate_MAGMA_2ndlevel_PHYLUM.png
+│   │           ├── group_CD_UC_VDZ_eliminate_MAGMA_2ndlevel_PHYLUM.png
+│   │           ├── group_CD_UST_Not_eliminate_MAGMA_2ndlevel_PHYLUM.png
+│   │           ├── group_CD_UST_eliminate_MAGMA_2ndlevel_PHYLUM.png
+│   │           ├── group_CD_VDZ_eliminate_MAGMA_2ndlevel_PHYLUM.png
+│   │           ├── group_UC_TNF_eliminate_MAGMA_2ndlevel_PHYLUM.png
+│   │           └── group_UC_VDZ_eliminate_MAGMA_2ndlevel_PHYLUM.png
+│   └── Taxa-level analysis
+│       ├── ABS_Grouped_CD_TNF_Family_withEDGE_LABEL.png
+│       ├── ABS_Grouped_CD_TNF_Family_withoutEDGE_LABEL.png
+│       ├── Comparison_CD_TNF.png
+│       ├── Comparison_CD_TNF_FAMILY.png
+│       ├── Comparison_CD_TNF_FAMILY_shrink.png
+│       ├── Comparison_CD_TNF_shrink.png
+│       ├── Comparison_CD_UST.png
+│       ├── Comparison_CD_UST_FAMILY.png
+│       ├── Comparison_CD_UST_FAMILY_shrink.png
+│       ├── Comparison_CD_UST_shrink.png
+│       ├── Comparison_CD_VDZ.png
+│       ├── Comparison_CD_VDZ_FAMILY.png
+│       ├── Comparison_CD_VDZ_FAMILY_shrink.png
+│       ├── Comparison_CD_VDZ_shrink.png
+│       ├── Comparison_TNF_CD_before_after.png
+│       ├── Comparison_TNF_CD_before_after_FAMILY.png
+│       ├── Comparison_TNF_CD_before_after_shrink.png
+│       ├── Comparison_UC_TNF.png
+│       ├── Comparison_UC_TNF_FAMILY.png
+│       ├── Comparison_UC_TNF_FAMILY_shrink.png
+│       ├── Comparison_UC_TNF_shrink.png
+│       ├── Comparison_UC_VDZ.png
+│       ├── Comparison_UC_VDZ_FAMILY.png
+│       ├── Comparison_UC_VDZ_FAMILY_shrink.png
+│       ├── Comparison_UC_VDZ_shrink.png
+│       ├── Grouped_CD_TNF_Family_withEDGE_LABEL.png
+│       ├── Grouped_CD_TNF_Family_withoutEDGE_LABEL.png
+│       ├── Grouped_CD_UST_Family_withEDGE_LABEL.png
+│       ├── Grouped_CD_UST_Family_withoutEDGE_LABEL.png
+│       ├── Grouped_CD_VDZ_Family_withEDGE_LABEL.png
+│       ├── Grouped_CD_VDZ_Family_withEDGE_LABEL2.png
+│       ├── Grouped_CD_VDZ_Family_withoutEDGE_LABEL.png
+│       ├── Grouped_UC_TNF_Family_withEDGE_LABEL.png
+│       ├── Grouped_UC_TNF_Family_withoutEDGE_LABEL.png
+│       ├── Grouped_UC_VDZ_Family_withEDGE_LABEL.png
+│       └── Grouped_UC_VDZ_Family_withoutEDGE_LABEL.png
+├── README.md
+├── Results
+│   ├── Enterotype_Analysis
+│   │   ├── Analysis_Enterotype.xlsx
+│   │   ├── TOP_10_most_different_Bact2_other.csv
+│   │   ├── graph_bact2_bact2.csv
+│   │   ├── graph_bact2_other.csv
+│   │   ├── graph_diff_bact2_bact2.csv
+│   │   ├── graph_diff_bact2_other.csv
+│   │   ├── graph_diff_other_other.csv
+│   │   ├── graph_other_other.csv
+│   │   ├── node_dist_bact2_bact2.csv
+│   │   ├── node_dist_bact2_other.csv
+│   │   ├── node_dist_other_other.csv
+│   │   ├── significant_nodes_bact2_bact2.txt
+│   │   ├── significant_nodes_bact2_other.txt
+│   │   └── significant_nodes_other_other.txt
+│   ├── Limma
+│   │   ├── Edge-based
+│   │   │   ├── w_0
+│   │   │   │   ├── Final_LIST_Family_Biomarker_LIMMA_025_result_correct.txt
+│   │   │   │   ├── Final_LIST_Family_Biomarker_LIMMA_025_result_correct.xlsx
+│   │   │   │   ├── Final_LIST_Family_Clinical_LIMMA_025_result_correct.txt
+│   │   │   │   ├── Final_LIST_Family_Clinical_LIMMA_025_result_correct.xlsx
+│   │   │   │   ├── Final_LIST_Family_Endoscopic_LIMMA_025_result_correct.txt
+│   │   │   │   ├── Final_LIST_Family_Endoscopic_LIMMA_025_result_correct.xlsx
+│   │   │   │   ├── Final_LIST_Genus_Biomarker_LIMMA_025_result_correct.txt
+│   │   │   │   ├── Final_LIST_Genus_Biomarker_LIMMA_025_result_correct.xlsx
+│   │   │   │   ├── Final_LIST_Genus_Clinical_LIMMA_025_result_correct.txt
+│   │   │   │   ├── Final_LIST_Genus_Clinical_LIMMA_025_result_correct.xlsx
+│   │   │   │   ├── Final_LIST_Genus_Endoscopic_LIMMA_025_result_correct.txt
+│   │   │   │   ├── Final_LIST_Genus_Endoscopic_LIMMA_025_result_correct.xlsx
+│   │   │   │   ├── Final_LIST_Taxa_Biomarker_LIMMA_025_result_correct.txt
+│   │   │   │   ├── Final_LIST_Taxa_Biomarker_LIMMA_025_result_correct.xlsx
+│   │   │   │   ├── Final_LIST_Taxa_Clinical_LIMMA_025_result_correct.txt
+│   │   │   │   ├── Final_LIST_Taxa_Clinical_LIMMA_025_result_correct.xlsx
+│   │   │   │   ├── Final_LIST_Taxa_Endoscopic_LIMMA_025_result_correct.txt
+│   │   │   │   ├── Final_LIST_Taxa_Endoscopic_LIMMA_025_result_correct.xlsx
+│   │   │   │   └── Interaction_Results
+│   │   │   │       ├── Final_INT_LIST_Family_Biomarker_LIMMA_025_result_correct.txt
+│   │   │   │       ├── Final_INT_LIST_Family_Biomarker_LIMMA_025_result_correct.xlsx
+│   │   │   │       ├── Final_INT_LIST_Family_Clinical_LIMMA_025_result_correct.txt
+│   │   │   │       ├── Final_INT_LIST_Family_Clinical_LIMMA_025_result_correct.xlsx
+│   │   │   │       ├── Final_INT_LIST_Family_Endoscopic_LIMMA_025_result_correct.txt
+│   │   │   │       ├── Final_INT_LIST_Family_Endoscopic_LIMMA_025_result_correct.xlsx
+│   │   │   │       ├── Final_INT_LIST_Genus_Biomarker_LIMMA_025_result_correct.txt
+│   │   │   │       ├── Final_INT_LIST_Genus_Biomarker_LIMMA_025_result_correct.xlsx
+│   │   │   │       ├── Final_INT_LIST_Genus_Clinical_LIMMA_025_result_correct.txt
+│   │   │   │       ├── Final_INT_LIST_Genus_Clinical_LIMMA_025_result_correct.xlsx
+│   │   │   │       ├── Final_INT_LIST_Genus_Endoscopic_LIMMA_025_result_correct.txt
+│   │   │   │       ├── Final_INT_LIST_Genus_Endoscopic_LIMMA_025_result_correct.xlsx
+│   │   │   │       ├── Final_INT_LIST_Taxa_Biomarker_LIMMA_025_result_correct.txt
+│   │   │   │       ├── Final_INT_LIST_Taxa_Biomarker_LIMMA_025_result_correct.xlsx
+│   │   │   │       ├── Final_INT_LIST_Taxa_Clinical_LIMMA_025_result_correct.txt
+│   │   │   │       ├── Final_INT_LIST_Taxa_Clinical_LIMMA_025_result_correct.xlsx
+│   │   │   │       ├── Final_INT_LIST_Taxa_Endoscopic_LIMMA_025_result_correct.txt
+│   │   │   │       └── Final_INT_LIST_Taxa_Endoscopic_LIMMA_025_result_correct.xlsx
+│   │   │   └── w_14_24
+│   │   │       ├── Final_LIST_Family_Biomarker_LIMMA_025_result_correct.txt
+│   │   │       ├── Final_LIST_Family_Biomarker_LIMMA_025_result_correct.xlsx
+│   │   │       ├── Final_LIST_Family_Clinical_LIMMA_025_result_correct.txt
+│   │   │       ├── Final_LIST_Family_Clinical_LIMMA_025_result_correct.xlsx
+│   │   │       ├── Final_LIST_Family_Endoscopic_LIMMA_025_result_correct.txt
+│   │   │       ├── Final_LIST_Family_Endoscopic_LIMMA_025_result_correct.xlsx
+│   │   │       ├── Final_LIST_Genus_Biomarker_LIMMA_025_result_correct.txt
+│   │   │       ├── Final_LIST_Genus_Biomarker_LIMMA_025_result_correct.xlsx
+│   │   │       ├── Final_LIST_Genus_Clinical_LIMMA_025_result_correct.txt
+│   │   │       ├── Final_LIST_Genus_Clinical_LIMMA_025_result_correct.xlsx
+│   │   │       ├── Final_LIST_Genus_Endoscopic_LIMMA_025_result_correct.txt
+│   │   │       ├── Final_LIST_Genus_Endoscopic_LIMMA_025_result_correct.xlsx
+│   │   │       ├── Final_LIST_Taxa_Biomarker_LIMMA_025_result_correct.txt
+│   │   │       ├── Final_LIST_Taxa_Biomarker_LIMMA_025_result_correct.xlsx
+│   │   │       ├── Final_LIST_Taxa_Clinical_LIMMA_025_result_correct.txt
+│   │   │       ├── Final_LIST_Taxa_Clinical_LIMMA_025_result_correct.xlsx
+│   │   │       ├── Final_LIST_Taxa_Endoscopic_LIMMA_025_result_correct.txt
+│   │   │       ├── Final_LIST_Taxa_Endoscopic_LIMMA_025_result_correct.xlsx
+│   │   │       └── Interaction_Results
+│   │   │           ├── Final_INT_LIST_Family_Biomarker_LIMMA_025_result_correct.txt
+│   │   │           ├── Final_INT_LIST_Family_Biomarker_LIMMA_025_result_correct.xlsx
+│   │   │           ├── Final_INT_LIST_Family_Clinical_LIMMA_025_result_correct.txt
+│   │   │           ├── Final_INT_LIST_Family_Clinical_LIMMA_025_result_correct.xlsx
+│   │   │           ├── Final_INT_LIST_Family_Endoscopic_LIMMA_025_result_correct.txt
+│   │   │           ├── Final_INT_LIST_Family_Endoscopic_LIMMA_025_result_correct.xlsx
+│   │   │           ├── Final_INT_LIST_Genus_Biomarker_LIMMA_025_result_correct.txt
+│   │   │           ├── Final_INT_LIST_Genus_Biomarker_LIMMA_025_result_correct.xlsx
+│   │   │           ├── Final_INT_LIST_Genus_Clinical_LIMMA_025_result_correct.txt
+│   │   │           ├── Final_INT_LIST_Genus_Clinical_LIMMA_025_result_correct.xlsx
+│   │   │           ├── Final_INT_LIST_Genus_Endoscopic_LIMMA_025_result_correct.txt
+│   │   │           ├── Final_INT_LIST_Genus_Endoscopic_LIMMA_025_result_correct.xlsx
+│   │   │           ├── Final_INT_LIST_Taxa_Biomarker_LIMMA_025_result_correct.txt
+│   │   │           ├── Final_INT_LIST_Taxa_Biomarker_LIMMA_025_result_correct.xlsx
+│   │   │           ├── Final_INT_LIST_Taxa_Clinical_LIMMA_025_result_correct.txt
+│   │   │           ├── Final_INT_LIST_Taxa_Clinical_LIMMA_025_result_correct.xlsx
+│   │   │           ├── Final_INT_LIST_Taxa_Endoscopic_LIMMA_025_result_correct.txt
+│   │   │           └── Final_INT_LIST_Taxa_Endoscopic_LIMMA_025_result_correct.xlsx
+│   │   ├── Edge-based-thresholds
+│   │   │   ├── Final_LIST_Family_Biomarker_LIMMA_025_result_correct_thr20.txt
+│   │   │   ├── Final_LIST_Family_Biomarker_LIMMA_025_result_correct_thr20.xlsx
+│   │   │   ├── Final_LIST_Family_Clinical_LIMMA_025_result_correct_thr20.txt
+│   │   │   ├── Final_LIST_Family_Clinical_LIMMA_025_result_correct_thr20.xlsx
+│   │   │   ├── Final_LIST_Family_Endoscopic_LIMMA_025_result_correct_thr20.txt
+│   │   │   ├── Final_LIST_Family_Endoscopic_LIMMA_025_result_correct_thr20.xlsx
+│   │   │   ├── Final_LIST_Genus_Biomarker_LIMMA_025_result_correct_thr20.txt
+│   │   │   ├── Final_LIST_Genus_Biomarker_LIMMA_025_result_correct_thr20.xlsx
+│   │   │   ├── Final_LIST_Genus_Clinical_LIMMA_025_result_correct_thr20.txt
+│   │   │   ├── Final_LIST_Genus_Clinical_LIMMA_025_result_correct_thr20.xlsx
+│   │   │   ├── Final_LIST_Genus_Endoscopic_LIMMA_025_result_correct_thr20.txt
+│   │   │   ├── Final_LIST_Genus_Endoscopic_LIMMA_025_result_correct_thr20.xlsx
+│   │   │   ├── Final_LIST_Taxa_Biomarker_LIMMA_025_result_correct_thr20.txt
+│   │   │   ├── Final_LIST_Taxa_Biomarker_LIMMA_025_result_correct_thr20.xlsx
+│   │   │   ├── Final_LIST_Taxa_Clinical_LIMMA_025_result_correct_thr20.txt
+│   │   │   ├── Final_LIST_Taxa_Clinical_LIMMA_025_result_correct_thr20.xlsx
+│   │   │   ├── Final_LIST_Taxa_Endoscopic_LIMMA_025_result_correct_thr20.txt
+│   │   │   ├── Final_LIST_Taxa_Endoscopic_LIMMA_025_result_correct_thr20.xlsx
+│   │   │   └── Interaction_Results
+│   │   │       ├── Final_INT_LIST_Family_Biomarker_LIMMA_025_result_correct_thr20.txt
+│   │   │       ├── Final_INT_LIST_Family_Biomarker_LIMMA_025_result_correct_thr20.xlsx
+│   │   │       ├── Final_INT_LIST_Family_Clinical_LIMMA_025_result_correct_thr20.txt
+│   │   │       ├── Final_INT_LIST_Family_Clinical_LIMMA_025_result_correct_thr20.xlsx
+│   │   │       ├── Final_INT_LIST_Family_Endoscopic_LIMMA_025_result_correct_thr20.txt
+│   │   │       ├── Final_INT_LIST_Family_Endoscopic_LIMMA_025_result_correct_thr20.xlsx
+│   │   │       ├── Final_INT_LIST_Genus_Biomarker_LIMMA_025_result_correct_thr20.txt
+│   │   │       ├── Final_INT_LIST_Genus_Biomarker_LIMMA_025_result_correct_thr20.xlsx
+│   │   │       ├── Final_INT_LIST_Genus_Clinical_LIMMA_025_result_correct_thr20.txt
+│   │   │       ├── Final_INT_LIST_Genus_Clinical_LIMMA_025_result_correct_thr20.xlsx
+│   │   │       ├── Final_INT_LIST_Genus_Endoscopic_LIMMA_025_result_correct_thr20.txt
+│   │   │       ├── Final_INT_LIST_Genus_Endoscopic_LIMMA_025_result_correct_thr20.xlsx
+│   │   │       ├── Final_INT_LIST_Taxa_Biomarker_LIMMA_025_result_correct_thr20.txt
+│   │   │       ├── Final_INT_LIST_Taxa_Biomarker_LIMMA_025_result_correct_thr20.xlsx
+│   │   │       ├── Final_INT_LIST_Taxa_Clinical_LIMMA_025_result_correct_thr20.txt
+│   │   │       ├── Final_INT_LIST_Taxa_Clinical_LIMMA_025_result_correct_thr20.xlsx
+│   │   │       ├── Final_INT_LIST_Taxa_Endoscopic_LIMMA_025_result_correct_thr20.txt
+│   │   │       └── Final_INT_LIST_Taxa_Endoscopic_LIMMA_025_result_correct_thr20.xlsx
+│   │   └── Enterotype_map_on_edge_based
+│   │       ├── w_0
+│   │       │   ├── Final_LIST_Enterotype_Biomarker_LIMMA_025_result_correct.txt
+│   │       │   ├── Final_LIST_Enterotype_Biomarker_LIMMA_025_result_correct.xlsx
+│   │       │   ├── Final_LIST_Enterotype_Clinical_LIMMA_025_result_correct.txt
+│   │       │   ├── Final_LIST_Enterotype_Clinical_LIMMA_025_result_correct.xlsx
+│   │       │   ├── Final_LIST_Enterotype_Endoscopic_LIMMA_025_result_correct.txt
+│   │       │   ├── Final_LIST_Enterotype_Endoscopic_LIMMA_025_result_correct.xlsx
+│   │       │   └── Interaction_Results
+│   │       │       ├── Final_INT_LIST_Enterotype_Biomarker_LIMMA_025_result_correct.txt
+│   │       │       ├── Final_INT_LIST_Enterotype_Biomarker_LIMMA_025_result_correct.xlsx
+│   │       │       ├── Final_INT_LIST_Enterotype_Clinical_LIMMA_025_result_correct.txt
+│   │       │       ├── Final_INT_LIST_Enterotype_Clinical_LIMMA_025_result_correct.xlsx
+│   │       │       ├── Final_INT_LIST_Enterotype_Endoscopic_LIMMA_025_result_correct.txt
+│   │       │       └── Final_INT_LIST_Enterotype_Endoscopic_LIMMA_025_result_correct.xlsx
+│   │       └── w_14_24
+│   │           ├── Final_LIST_Enterotype_Biomarker_LIMMA_025_result_correct.txt
+│   │           ├── Final_LIST_Enterotype_Biomarker_LIMMA_025_result_correct.xlsx
+│   │           ├── Final_LIST_Enterotype_Clinical_LIMMA_025_result_correct.txt
+│   │           ├── Final_LIST_Enterotype_Clinical_LIMMA_025_result_correct.xlsx
+│   │           ├── Final_LIST_Enterotype_Endoscopic_LIMMA_025_result_correct.txt
+│   │           ├── Final_LIST_Enterotype_Endoscopic_LIMMA_025_result_correct.xlsx
+│   │           └── Interaction_Results
+│   │               ├── Final_INT_LIST_Enterotype_Biomarker_LIMMA_025_result_correct.txt
+│   │               ├── Final_INT_LIST_Enterotype_Biomarker_LIMMA_025_result_correct.xlsx
+│   │               ├── Final_INT_LIST_Enterotype_Clinical_LIMMA_025_result_correct.txt
+│   │               ├── Final_INT_LIST_Enterotype_Clinical_LIMMA_025_result_correct.xlsx
+│   │               ├── Final_INT_LIST_Enterotype_Endoscopic_LIMMA_025_result_correct.txt
+│   │               └── Final_INT_LIST_Enterotype_Endoscopic_LIMMA_025_result_correct.xlsx
+│   ├── Number_individual_and_taxa.xlsx
+│   └── Prediction
+│       ├── Edge-based
+│       │   ├── w_0
+│       │   │   ├── RFCV
+│       │   │   │   ├── Final_LIST_Family_Biomarker_RFCV.txt
+│       │   │   │   ├── Final_LIST_Family_Biomarker_RFCV.xlsx
+│       │   │   │   ├── Final_LIST_Family_Clinical_RFCV.txt
+│       │   │   │   ├── Final_LIST_Family_Clinical_RFCV.xlsx
+│       │   │   │   ├── Final_LIST_Family_Endoscopic_RFCV.txt
+│       │   │   │   ├── Final_LIST_Family_Endoscopic_RFCV.xlsx
+│       │   │   │   ├── Final_LIST_Genus_Biomarker_RFCV.txt
+│       │   │   │   ├── Final_LIST_Genus_Biomarker_RFCV.xlsx
+│       │   │   │   ├── Final_LIST_Genus_Clinical_RFCV.txt
+│       │   │   │   ├── Final_LIST_Genus_Clinical_RFCV.xlsx
+│       │   │   │   ├── Final_LIST_Genus_Endoscopic_RFCV.txt
+│       │   │   │   ├── Final_LIST_Genus_Endoscopic_RFCV.xlsx
+│       │   │   │   ├── Final_LIST_Taxa_Biomarker_RFCV.txt
+│       │   │   │   ├── Final_LIST_Taxa_Biomarker_RFCV.xlsx
+│       │   │   │   ├── Final_LIST_Taxa_Clinical_RFCV.txt
+│       │   │   │   ├── Final_LIST_Taxa_Clinical_RFCV.xlsx
+│       │   │   │   ├── Final_LIST_Taxa_Endoscopic_RFCV.txt
+│       │   │   │   ├── Final_LIST_Taxa_Endoscopic_RFCV.xlsx
+│       │   │   │   └── Interaction_Results
+│       │   │   │       ├── Final_INT_LIST_Family_Biomarker_RFCV.txt
+│       │   │   │       ├── Final_INT_LIST_Family_Biomarker_RFCV.xlsx
+│       │   │   │       ├── Final_INT_LIST_Family_Clinical_RFCV.txt
+│       │   │   │       ├── Final_INT_LIST_Family_Clinical_RFCV.xlsx
+│       │   │   │       ├── Final_INT_LIST_Family_Endoscopic_RFCV.txt
+│       │   │   │       ├── Final_INT_LIST_Family_Endoscopic_RFCV.xlsx
+│       │   │   │       ├── Final_INT_LIST_Genus_Biomarker_RFCV.txt
+│       │   │   │       ├── Final_INT_LIST_Genus_Biomarker_RFCV.xlsx
+│       │   │   │       ├── Final_INT_LIST_Genus_Clinical_RFCV.txt
+│       │   │   │       ├── Final_INT_LIST_Genus_Clinical_RFCV.xlsx
+│       │   │   │       ├── Final_INT_LIST_Genus_Endoscopic_RFCV.txt
+│       │   │   │       ├── Final_INT_LIST_Genus_Endoscopic_RFCV.xlsx
+│       │   │   │       ├── Final_INT_LIST_Taxa_Biomarker_RFCV.txt
+│       │   │   │       ├── Final_INT_LIST_Taxa_Biomarker_RFCV.xlsx
+│       │   │   │       ├── Final_INT_LIST_Taxa_Clinical_RFCV.txt
+│       │   │   │       ├── Final_INT_LIST_Taxa_Clinical_RFCV.xlsx
+│       │   │   │       ├── Final_INT_LIST_Taxa_Endoscopic_RFCV.txt
+│       │   │   │       └── Final_INT_LIST_Taxa_Endoscopic_RFCV.xlsx
+│       │   │   └── SVM
+│       │   │       ├── Final_LIST_Family_Biomarker_SVM.txt
+│       │   │       ├── Final_LIST_Family_Biomarker_SVM.xlsx
+│       │   │       ├── Final_LIST_Family_Clinical_SVM.txt
+│       │   │       ├── Final_LIST_Family_Clinical_SVM.xlsx
+│       │   │       ├── Final_LIST_Family_Endoscopic_SVM.txt
+│       │   │       ├── Final_LIST_Family_Endoscopic_SVM.xlsx
+│       │   │       ├── Final_LIST_Genus_Biomarker_SVM.txt
+│       │   │       ├── Final_LIST_Genus_Biomarker_SVM.xlsx
+│       │   │       ├── Final_LIST_Genus_Clinical_SVM.txt
+│       │   │       ├── Final_LIST_Genus_Clinical_SVM.xlsx
+│       │   │       ├── Final_LIST_Genus_Endoscopic_SVM.txt
+│       │   │       ├── Final_LIST_Genus_Endoscopic_SVM.xlsx
+│       │   │       ├── Final_LIST_Taxa_Biomarker_SVM.txt
+│       │   │       ├── Final_LIST_Taxa_Biomarker_SVM.xlsx
+│       │   │       ├── Final_LIST_Taxa_Clinical_SVM.txt
+│       │   │       ├── Final_LIST_Taxa_Clinical_SVM.xlsx
+│       │   │       ├── Final_LIST_Taxa_Endoscopic_SVM.txt
+│       │   │       ├── Final_LIST_Taxa_Endoscopic_SVM.xlsx
+│       │   │       └── Interaction_Results
+│       │   │           ├── Final_INT_LIST_Family_Biomarker_SVM.txt
+│       │   │           ├── Final_INT_LIST_Family_Biomarker_SVM.xlsx
+│       │   │           ├── Final_INT_LIST_Family_Clinical_SVM.txt
+│       │   │           ├── Final_INT_LIST_Family_Clinical_SVM.xlsx
+│       │   │           ├── Final_INT_LIST_Family_Endoscopic_SVM.txt
+│       │   │           ├── Final_INT_LIST_Family_Endoscopic_SVM.xlsx
+│       │   │           ├── Final_INT_LIST_Genus_Biomarker_SVM.txt
+│       │   │           ├── Final_INT_LIST_Genus_Biomarker_SVM.xlsx
+│       │   │           ├── Final_INT_LIST_Genus_Clinical_SVM.txt
+│       │   │           ├── Final_INT_LIST_Genus_Clinical_SVM.xlsx
+│       │   │           ├── Final_INT_LIST_Genus_Endoscopic_SVM.txt
+│       │   │           ├── Final_INT_LIST_Genus_Endoscopic_SVM.xlsx
+│       │   │           ├── Final_INT_LIST_Taxa_Biomarker_SVM.txt
+│       │   │           ├── Final_INT_LIST_Taxa_Biomarker_SVM.xlsx
+│       │   │           ├── Final_INT_LIST_Taxa_Clinical_SVM.txt
+│       │   │           ├── Final_INT_LIST_Taxa_Clinical_SVM.xlsx
+│       │   │           ├── Final_INT_LIST_Taxa_Endoscopic_SVM.txt
+│       │   │           └── Final_INT_LIST_Taxa_Endoscopic_SVM.xlsx
+│       │   └── w_14_24
+│       │       ├── RFCV
+│       │       │   ├── Final_LIST_Family_Biomarker_RFCV.txt
+│       │       │   ├── Final_LIST_Family_Biomarker_RFCV.xlsx
+│       │       │   ├── Final_LIST_Family_Clinical_RFCV.txt
+│       │       │   ├── Final_LIST_Family_Clinical_RFCV.xlsx
+│       │       │   ├── Final_LIST_Family_Endoscopic_RFCV.txt
+│       │       │   ├── Final_LIST_Family_Endoscopic_RFCV.xlsx
+│       │       │   ├── Final_LIST_Genus_Biomarker_RFCV.txt
+│       │       │   ├── Final_LIST_Genus_Biomarker_RFCV.xlsx
+│       │       │   ├── Final_LIST_Genus_Clinical_RFCV.txt
+│       │       │   ├── Final_LIST_Genus_Clinical_RFCV.xlsx
+│       │       │   ├── Final_LIST_Genus_Endoscopic_RFCV.txt
+│       │       │   ├── Final_LIST_Genus_Endoscopic_RFCV.xlsx
+│       │       │   ├── Final_LIST_Taxa_Biomarker_RFCV.txt
+│       │       │   ├── Final_LIST_Taxa_Biomarker_RFCV.xlsx
+│       │       │   ├── Final_LIST_Taxa_Clinical_RFCV.txt
+│       │       │   ├── Final_LIST_Taxa_Clinical_RFCV.xlsx
+│       │       │   ├── Final_LIST_Taxa_Endoscopic_RFCV.txt
+│       │       │   ├── Final_LIST_Taxa_Endoscopic_RFCV.xlsx
+│       │       │   └── Interaction_Results
+│       │       │       ├── Final_INT_LIST_Family_Biomarker_RFCV.txt
+│       │       │       ├── Final_INT_LIST_Family_Biomarker_RFCV.xlsx
+│       │       │       ├── Final_INT_LIST_Family_Clinical_RFCV.txt
+│       │       │       ├── Final_INT_LIST_Family_Clinical_RFCV.xlsx
+│       │       │       ├── Final_INT_LIST_Family_Endoscopic_RFCV.txt
+│       │       │       ├── Final_INT_LIST_Family_Endoscopic_RFCV.xlsx
+│       │       │       ├── Final_INT_LIST_Genus_Biomarker_RFCV.txt
+│       │       │       ├── Final_INT_LIST_Genus_Biomarker_RFCV.xlsx
+│       │       │       ├── Final_INT_LIST_Genus_Clinical_RFCV.txt
+│       │       │       ├── Final_INT_LIST_Genus_Clinical_RFCV.xlsx
+│       │       │       ├── Final_INT_LIST_Genus_Endoscopic_RFCV.txt
+│       │       │       ├── Final_INT_LIST_Genus_Endoscopic_RFCV.xlsx
+│       │       │       ├── Final_INT_LIST_Taxa_Biomarker_RFCV.txt
+│       │       │       ├── Final_INT_LIST_Taxa_Biomarker_RFCV.xlsx
+│       │       │       ├── Final_INT_LIST_Taxa_Clinical_RFCV.txt
+│       │       │       ├── Final_INT_LIST_Taxa_Clinical_RFCV.xlsx
+│       │       │       ├── Final_INT_LIST_Taxa_Endoscopic_RFCV.txt
+│       │       │       └── Final_INT_LIST_Taxa_Endoscopic_RFCV.xlsx
+│       │       └── SVM
+│       │           ├── Final_LIST_Family_Biomarker_SVM.txt
+│       │           ├── Final_LIST_Family_Biomarker_SVM.xlsx
+│       │           ├── Final_LIST_Family_Clinical_SVM.txt
+│       │           ├── Final_LIST_Family_Clinical_SVM.xlsx
+│       │           ├── Final_LIST_Family_Endoscopic_SVM.txt
+│       │           ├── Final_LIST_Family_Endoscopic_SVM.xlsx
+│       │           ├── Final_LIST_Genus_Biomarker_SVM.txt
+│       │           ├── Final_LIST_Genus_Biomarker_SVM.xlsx
+│       │           ├── Final_LIST_Genus_Clinical_SVM.txt
+│       │           ├── Final_LIST_Genus_Clinical_SVM.xlsx
+│       │           ├── Final_LIST_Genus_Endoscopic_SVM.txt
+│       │           ├── Final_LIST_Genus_Endoscopic_SVM.xlsx
+│       │           ├── Final_LIST_Taxa_Biomarker_SVM.txt
+│       │           ├── Final_LIST_Taxa_Biomarker_SVM.xlsx
+│       │           ├── Final_LIST_Taxa_Clinical_SVM.txt
+│       │           ├── Final_LIST_Taxa_Clinical_SVM.xlsx
+│       │           ├── Final_LIST_Taxa_Endoscopic_SVM.txt
+│       │           ├── Final_LIST_Taxa_Endoscopic_SVM.xlsx
+│       │           └── Interaction_Results
+│       │               ├── Final_INT_LIST_Family_Biomarker_SVM.txt
+│       │               ├── Final_INT_LIST_Family_Biomarker_SVM.xlsx
+│       │               ├── Final_INT_LIST_Family_Clinical_SVM.txt
+│       │               ├── Final_INT_LIST_Family_Clinical_SVM.xlsx
+│       │               ├── Final_INT_LIST_Family_Endoscopic_SVM.txt
+│       │               ├── Final_INT_LIST_Family_Endoscopic_SVM.xlsx
+│       │               ├── Final_INT_LIST_Genus_Biomarker_SVM.txt
+│       │               ├── Final_INT_LIST_Genus_Biomarker_SVM.xlsx
+│       │               ├── Final_INT_LIST_Genus_Clinical_SVM.txt
+│       │               ├── Final_INT_LIST_Genus_Clinical_SVM.xlsx
+│       │               ├── Final_INT_LIST_Genus_Endoscopic_SVM.txt
+│       │               ├── Final_INT_LIST_Genus_Endoscopic_SVM.xlsx
+│       │               ├── Final_INT_LIST_Taxa_Biomarker_SVM.txt
+│       │               ├── Final_INT_LIST_Taxa_Biomarker_SVM.xlsx
+│       │               ├── Final_INT_LIST_Taxa_Clinical_SVM.txt
+│       │               ├── Final_INT_LIST_Taxa_Clinical_SVM.xlsx
+│       │               ├── Final_INT_LIST_Taxa_Endoscopic_SVM.txt
+│       │               └── Final_INT_LIST_Taxa_Endoscopic_SVM.xlsx
+│       └── Metrics_based
+│           ├── Documentation_22_08.docx
+│           ├── Important_metrics
+│           │   ├── RFCV
+│           │   │   ├── Final_LIST_Family_Biomarker_RFCV.txt
+│           │   │   ├── Final_LIST_Family_Biomarker_RFCV.xlsx
+│           │   │   ├── Final_LIST_Family_Clinical_RFCV.txt
+│           │   │   ├── Final_LIST_Family_Clinical_RFCV.xlsx
+│           │   │   ├── Final_LIST_Family_Endoscopic_RFCV.txt
+│           │   │   ├── Final_LIST_Family_Endoscopic_RFCV.xlsx
+│           │   │   ├── Final_LIST_Genus_Biomarker_RFCV.txt
+│           │   │   ├── Final_LIST_Genus_Biomarker_RFCV.xlsx
+│           │   │   ├── Final_LIST_Genus_Clinical_RFCV.txt
+│           │   │   ├── Final_LIST_Genus_Clinical_RFCV.xlsx
+│           │   │   ├── Final_LIST_Genus_Endoscopic_RFCV.txt
+│           │   │   ├── Final_LIST_Genus_Endoscopic_RFCV.xlsx
+│           │   │   ├── Final_LIST_Taxa_Biomarker_RFCV.txt
+│           │   │   ├── Final_LIST_Taxa_Biomarker_RFCV.xlsx
+│           │   │   ├── Final_LIST_Taxa_Clinical_RFCV.txt
+│           │   │   ├── Final_LIST_Taxa_Clinical_RFCV.xlsx
+│           │   │   ├── Final_LIST_Taxa_Endoscopic_RFCV.txt
+│           │   │   └── Final_LIST_Taxa_Endoscopic_RFCV.xlsx
+│           │   └── SVM
+│           │       ├── Final_LIST_Family_Biomarker_SVM.txt
+│           │       ├── Final_LIST_Family_Biomarker_SVM.xlsx
+│           │       ├── Final_LIST_Family_Clinical_SVM.txt
+│           │       ├── Final_LIST_Family_Clinical_SVM.xlsx
+│           │       ├── Final_LIST_Family_Endoscopic_SVM.txt
+│           │       ├── Final_LIST_Family_Endoscopic_SVM.xlsx
+│           │       ├── Final_LIST_Genus_Biomarker_SVM.txt
+│           │       ├── Final_LIST_Genus_Biomarker_SVM.xlsx
+│           │       ├── Final_LIST_Genus_Clinical_SVM.txt
+│           │       ├── Final_LIST_Genus_Clinical_SVM.xlsx
+│           │       ├── Final_LIST_Genus_Endoscopic_SVM.txt
+│           │       ├── Final_LIST_Genus_Endoscopic_SVM.xlsx
+│           │       ├── Final_LIST_Taxa_Biomarker_SVM.txt
+│           │       ├── Final_LIST_Taxa_Biomarker_SVM.xlsx
+│           │       ├── Final_LIST_Taxa_Clinical_SVM.txt
+│           │       ├── Final_LIST_Taxa_Clinical_SVM.xlsx
+│           │       ├── Final_LIST_Taxa_Endoscopic_SVM.txt
+│           │       └── Final_LIST_Taxa_Endoscopic_SVM.xlsx
+│           ├── Prediction
+│           │   ├── Prediction_matrix_metrics.rds
+│           │   ├── Prediction_matrix_metrics.xlsx
+│           │   ├── Prediction_matrix_metrics_AverageShortestPathLength.rds
+│           │   ├── Prediction_matrix_metrics_AverageShortestPathLength.xlsx
+│           │   ├── Prediction_matrix_metrics_BetweennessCentrality.rds
+│           │   ├── Prediction_matrix_metrics_BetweennessCentrality.xlsx
+│           │   ├── Prediction_matrix_metrics_ClosenessCentrality.rds
+│           │   ├── Prediction_matrix_metrics_ClosenessCentrality.xlsx
+│           │   ├── Prediction_matrix_metrics_ClusteringCoefficient.rds
+│           │   ├── Prediction_matrix_metrics_ClusteringCoefficient.xlsx
+│           │   ├── Prediction_matrix_metrics_Degree.rds
+│           │   ├── Prediction_matrix_metrics_Degree.xlsx
+│           │   ├── Prediction_matrix_metrics_Eccentricity.rds
+│           │   ├── Prediction_matrix_metrics_Eccentricity.xlsx
+│           │   ├── Prediction_matrix_metrics_NeighborhoodConnectivity.rds
+│           │   ├── Prediction_matrix_metrics_NeighborhoodConnectivity.xlsx
+│           │   ├── Prediction_matrix_metrics_Radiality.rds
+│           │   ├── Prediction_matrix_metrics_Radiality.xlsx
+│           │   ├── Prediction_matrix_metrics_Stress.rds
+│           │   ├── Prediction_matrix_metrics_Stress.xlsx
+│           │   ├── Prediction_matrix_metrics_TopologicalCoefficient.rds
+│           │   └── Prediction_matrix_metrics_TopologicalCoefficient.xlsx
+│           └── ~$cumentation_22_08.docx
+├── novel_big_tree.txt
+└── tree_folder.txt
+
+104 directories, 1312 files

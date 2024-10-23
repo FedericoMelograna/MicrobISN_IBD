@@ -1,0 +1,11 @@
+Family_1__Family_2	CD_TNF_14	CD_TNF_24	CD_UC_TNF_14	CD_UC_TNF_24	UC_VDZ_14	sum_taxas	appearance	Family_1	Family_2
+Lachnospiraceae__Lachnospiraceae	0	1	7	1	1	10	4	Lachnospiraceae	Lachnospiraceae
+Lachnospiraceae__Ruminococcaceae	0	0	5	0	0	5	1	Lachnospiraceae	Ruminococcaceae
+Ruminococcaceae__Ruminococcaceae	0	0	2	0	0	2	1	Ruminococcaceae	Ruminococcaceae
+Bacteroidaceae__Sutterellaceae	1	0	0	0	0	1	1	Bacteroidaceae	Sutterellaceae
+Acidaminococcaceae__Bacteroidaceae	0	0	1	0	0	1	1	Acidaminococcaceae	Bacteroidaceae
+Erysipelotrichaceae__Lachnospiraceae	0	0	1	0	0	1	1	Erysipelotrichaceae	Lachnospiraceae
+Lachnospiraceae__Prevotellaceae	0	0	1	0	0	1	1	Lachnospiraceae	Prevotellaceae
+Pasteurellaceae__Streptococcaceae	0	0	1	0	0	1	1	Pasteurellaceae	Streptococcaceae
+Porphyromonadaceae__NA	0	0	1	0	0	1	1	Porphyromonadaceae	NA
+0	0	0	0	0	0	0	0	0	NA

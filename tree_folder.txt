@@ -1,0 +1,107 @@
+Folder PATH listing for volume Windows
+Volume serial number is F68E-67BF
+C:.
++---Code
+¦   +---Alpha_beta_diversity
+¦   ¦   +---Fractional_abundances_Pie_chart
+¦   +---Enterotypes_analysis
+¦   ¦   +---Calculating_ISN_per_Enterotype
+¦   +---Grouping_LIMMA_results_shared_taxon
+¦   +---ISN_construction
+¦   +---LIMMA
+¦   ¦   +---Postprocessing
+¦   +---Prediction
+¦   ¦   +---Edge_based_prediction
+¦   ¦   ¦   +---Edge_based_onlyRFCV_strat
+¦   ¦   ¦   ¦   +---Week0
+¦   ¦   ¦   ¦   +---Week14_24
+¦   ¦   ¦   +---SVM_based
+¦   ¦   +---Matrices_metrics
+¦   ¦       +---No_AVG
+¦   +---Taxa-level analysis
++---Graphs
+¦   +---Alpha_beta_diversity
+¦   ¦   +---Cohort_based_Alpha_Beta_Diversity
+¦   ¦   ¦   +---group_CD_TNF_eliminate_14
+¦   ¦   ¦   +---group_CD_TNF_eliminate_24
+¦   ¦   ¦   +---group_CD_TNF_eliminate_w0
+¦   ¦   ¦   +---group_CD_UC_TNF_eliminate_14
+¦   ¦   ¦   +---group_CD_UC_TNF_eliminate_24
+¦   ¦   ¦   +---group_CD_UC_TNF_eliminate_w0
+¦   ¦   ¦   +---group_CD_UC_VDZ_eliminate_14
+¦   ¦   ¦   +---group_CD_UC_VDZ_eliminate_24
+¦   ¦   ¦   +---group_CD_UC_VDZ_eliminate_w0
+¦   ¦   ¦   +---group_CD_UST_eliminate_24
+¦   ¦   ¦   +---group_CD_UST_eliminate_w0
+¦   ¦   ¦   +---group_CD_VDZ_eliminate_14
+¦   ¦   ¦   +---group_CD_VDZ_eliminate_24
+¦   ¦   ¦   +---group_CD_VDZ_eliminate_w0
+¦   ¦   ¦   +---group_UC_TNF_eliminate_14
+¦   ¦   ¦   +---group_UC_TNF_eliminate_w0
+¦   ¦   ¦   +---group_UC_VDZ_eliminate_14
+¦   ¦   ¦   +---group_UC_VDZ_eliminate_w0
+¦   ¦   +---TNF_selected_microbes_per_list
+¦   ¦   ¦   +---group_CD_TNF_eliminate_w0_selected_microbes_canc
+¦   ¦   ¦   +---group_CD_TNF_eliminate_w0_selected_microbes_no_canc_un_name
+¦   ¦   ¦   +---group_CD_UC_TNF_eliminate_w0_selected_microbes_canc
+¦   ¦   ¦   +---group_CD_UC_TNF_eliminate_w0_selected_microbes_no_canc_un_name
+¦   ¦   ¦   +---group_UC_TNF_eliminate_w0_selected_microbes_canc
+¦   ¦   ¦   +---group_UC_TNF_eliminate_w0_selected_microbes_no_canc_un_name
+¦   ¦   +---TNF_selected_microbes_per_list_resp_vs_non_resp
+¦   ¦       +---CD_TNF_eliminate_w0_canc_divided_responder
+¦   ¦       +---CD_TNF_eliminate_w0_no_canc_un_name_divided_responder
+¦   ¦       +---CD_UC_TNF_eliminate_w0_canc_divided_responder
+¦   ¦       +---CD_UC_TNF_eliminate_w0_no_canc_un_name_divided_responder
+¦   ¦       +---UC_TNF_eliminate_w0_canc_divided_responder
+¦   ¦       +---UC_TNF_eliminate_w0_no_canc_un_name_divided_responder
+¦   +---Analysis_Enterotype
+¦   +---Microbial_Fractional_abundances
+¦   ¦   +---Class_level_graphs
+¦   ¦   +---Family_level_graphs
+¦   ¦   +---Phylum_level_graphs
+¦   +---Population_based_connections
+¦   ¦   +---w_0
+¦   ¦   ¦   +---OLD_ENTEROTYPE_BINARY
+¦   ¦   ¦   +---OLD_ENTEROTYPE_CONTINUOUS
+¦   ¦   ¦   +---PHYLUM_COMBINED_BINARY
+¦   ¦   ¦   +---PHYLUM_COMBINED_CONTINUOUS
+¦   ¦   ¦   +---TAXAS_NETWORK
+¦   ¦   +---w_14_24
+¦   ¦       +---OLD_ENTEROTYPE_BINARY
+¦   ¦       +---OLD_ENTEROTYPE_CONTINUOUS
+¦   ¦       +---PHYLUM_COMBINED_BINARY
+¦   ¦       +---PHYLUM_COMBINED_CONTINUOUS
+¦   ¦       +---TAXA_NETWORK
+¦   +---Taxa-level analysis
++---Results
+    +---Enterotype_Analysis
+    +---Limma
+    ¦   +---Edge-based
+    ¦   ¦   +---w_0
+    ¦   ¦   ¦   +---Interaction_Results
+    ¦   ¦   +---w_14_24
+    ¦   ¦       +---Interaction_Results
+    ¦   +---Edge-based-thresholds
+    ¦   ¦   +---Interaction_Results
+    ¦   +---Enterotype_map_on_edge_based
+    ¦       +---w_0
+    ¦       ¦   +---Interaction_Results
+    ¦       +---w_14_24
+    ¦           +---Interaction_Results
+    +---Prediction
+        +---Edge-based
+        ¦   +---w_0
+        ¦   ¦   +---RFCV
+        ¦   ¦   ¦   +---Interaction_Results
+        ¦   ¦   +---SVM
+        ¦   ¦       +---Interaction_Results
+        ¦   +---w_14_24
+        ¦       +---RFCV
+        ¦       ¦   +---Interaction_Results
+        ¦       +---SVM
+        ¦           +---Interaction_Results
+        +---Metrics_based
+            +---Important_metrics
+            ¦   +---RFCV
+            ¦   +---SVM
+            +---Prediction

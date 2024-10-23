@@ -1,0 +1,17 @@
+Family	CD_TNF	CD_UC_TNF	CD_UC_VDZ	CD_UST	CD_VDZ	UC_TNF	UC_VDZ	sum_taxas	appearance
+Lachnospiraceae	8	10	1	2	15	2	4	42	7
+Ruminococcaceae	6	6	2	0	6	2	0	22	5
+Rikenellaceae	2	8	0	0	1	0	0	11	3
+Bacteroidaceae	4	1	0	0	0	0	0	5	2
+Coriobacteriaceae	3	0	0	0	0	0	0	3	1
+Erysipelotrichaceae	0	2	0	0	0	0	0	2	1
+Porphyromonadaceae	0	2	0	0	0	0	0	2	1
+Streptococcaceae	0	0	0	2	0	0	0	2	1
+Clostridiaceae_1	1	0	0	0	0	0	0	1	1
+Desulfovibrionaceae	1	0	0	0	0	0	0	1	1
+Pasteurellaceae	1	0	0	0	0	0	0	1	1
+Enterobacteriaceae	0	1	0	0	0	0	0	1	1
+Peptostreptococcaceae	0	1	0	0	0	0	0	1	1
+Acidaminococcaceae	0	0	1	0	0	0	0	1	1
+Eubacteriaceae	0	0	0	0	0	1	0	1	1
+0	0	0	0	0	0	0	0	0	0

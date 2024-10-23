@@ -1,0 +1,7 @@
+Genus	CD_TNF_24	CD_UC_TNF_14	CD_UC_TNF_24	CD_UST_24	UC_VDZ_14	sum_taxas	appearance	Family
+Bacteroides	2	0	2	0	0	4	2	Bacteroidaceae
+Akkermansia	0	0	0	1	0	1	1	Verrucomicrobiaceae
+Coprococcus	0	0	0	0	1	1	1	Lachnospiraceae
+Dialister	0	0	0	1	0	1	1	Veillonellaceae
+Oscillibacter	0	1	0	0	0	1	1	Ruminococcaceae
+Roseburia	0	0	0	0	1	1	1	Lachnospiraceae

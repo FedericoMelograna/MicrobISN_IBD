@@ -1,0 +1,7 @@
+Family	CD_TNF_24	CD_UC_TNF_14	CD_UC_TNF_24	CD_UST_24	UC_VDZ_14	sum_taxas	appearance
+Bacteroidaceae	2	0	2	0	0	4	2
+Ruminococcaceae	0	2	0	0	0	2	1
+Lachnospiraceae	0	0	0	0	2	2	1
+Veillonellaceae	0	0	0	1	0	1	1
+Verrucomicrobiaceae	0	0	0	1	0	1	1
+0	0	0	0	0	0	0	0

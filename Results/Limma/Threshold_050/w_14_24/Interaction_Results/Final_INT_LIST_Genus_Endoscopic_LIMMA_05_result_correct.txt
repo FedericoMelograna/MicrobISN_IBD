@@ -1,0 +1,11 @@
+Genus_1	Genus_2	Genus_1__Genus_2	CD_TNF_14	CD_TNF_24	CD_UC_TNF_14	CD_UC_TNF_24	CD_UST_24	UC_VDZ_14	sum_taxas	appearance	Family.x	Family.y
+Blautia	Clostridium_XlVb	Blautia__Clostridium_XlVb	0	1	0	1	0	0	2	2	Lachnospiraceae	Lachnospiraceae
+Streptococcus	Streptococcus	Streptococcus__Streptococcus	0	1	0	1	0	0	2	2	Streptococcaceae	Streptococcaceae
+Adlercreutzia	Intestinimonas	Adlercreutzia__Intestinimonas	0	0	0	0	1	0	1	1	Ruminococcaceae	Coriobacteriaceae
+Bifidobacterium	Bifidobacterium	Bifidobacterium__Bifidobacterium	0	0	0	0	1	0	1	1	Bifidobacteriaceae	Bifidobacteriaceae
+Blautia	Gemmiger	Blautia__Gemmiger	0	0	0	0	1	0	1	1	Ruminococcaceae	Lachnospiraceae
+Blautia	Prevotella	Blautia__Prevotella	0	0	0	0	1	0	1	1	Prevotellaceae	Lachnospiraceae
+Coprococcus	Roseburia	Coprococcus__Roseburia	0	0	0	0	0	1	1	1	Lachnospiraceae	Lachnospiraceae
+Faecalibacterium	Coprococcus	Faecalibacterium__Coprococcus	1	0	0	0	0	0	1	1	Lachnospiraceae	Ruminococcaceae
+Intestinibacter	Romboutsia	Intestinibacter__Romboutsia	0	0	0	0	1	0	1	1	Peptostreptococcaceae	Peptostreptococcaceae
+Roseburia	Prevotella	Roseburia__Prevotella	1	0	0	0	0	0	1	1	Prevotellaceae	Lachnospiraceae

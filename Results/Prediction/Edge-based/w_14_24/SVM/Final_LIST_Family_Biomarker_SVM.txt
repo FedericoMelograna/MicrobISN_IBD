@@ -1,0 +1,16 @@
+Family	CD_TNF_14	CD_TNF_24	CD_UC_TNF_14	CD_UC_TNF_24	CD_UC_VDZ_14	CD_UC_VDZ_24	CD_UST_24	CD_VDZ_14	CD_VDZ_24	UC_TNF_14	UC_VDZ_14	sum_taxas	appearance
+Lachnospiraceae	14	5	20	5	5	9	3	21	9	6	15	112	11
+Ruminococcaceae	10	3	11	3	2	12	0	8	12	1	5	67	10
+Bacteroidaceae	0	2	1	2	0	1	0	0	1	0	1	8	6
+Rikenellaceae	0	0	0	0	0	2	1	2	2	0	1	8	5
+Erysipelotrichaceae	1	0	1	0	0	1	2	0	1	0	0	6	5
+Coriobacteriaceae	1	0	2	0	0	0	0	0	0	0	0	3	2
+Porphyromonadaceae	0	0	1	0	0	0	0	1	0	0	1	3	3
+Clostridiaceae_1	1	0	0	0	0	0	0	0	0	0	1	2	2
+Acidaminococcaceae	0	0	0	0	0	1	0	0	1	0	0	2	2
+Clostridiales_Incertae_Sedis_XIII	0	0	0	0	0	1	0	0	1	0	0	2	2
+Actinomycetaceae	0	0	0	0	1	0	0	0	0	0	0	1	1
+Streptococcaceae	0	0	0	0	1	0	0	0	0	0	0	1	1
+Bifidobacteriaceae	0	0	0	0	0	0	0	0	0	1	0	1	1
+Peptostreptococcaceae	0	0	0	0	0	0	0	0	0	0	1	1	1
+0	0	0	0	0	0	0	0	0	0	0	0	0	0

@@ -1,0 +1,15 @@
+Genus_1	Genus_2	Genus_1__Genus_2	CD_TNF_14	CD_TNF_24	CD_UC_TNF_14	CD_UC_TNF_24	UC_VDZ_14	sum_taxas	appearance	Family.x	Family.y
+Roseburia	Roseburia	Roseburia__Roseburia	0	1	0	1	0	2	2	Lachnospiraceae	Lachnospiraceae
+Bacteroides	Parasutterella	Bacteroides__Parasutterella	1	0	0	0	0	1	1	Sutterellaceae	Bacteroidaceae
+Bacteroides	Phascolarctobacterium	Bacteroides__Phascolarctobacterium	0	0	1	0	0	1	1	Acidaminococcaceae	Bacteroidaceae
+Blautia	Faecalibacterium	Blautia__Faecalibacterium	0	0	1	0	0	1	1	Ruminococcaceae	Lachnospiraceae
+Butyricicoccus	Clostridium_XlVa	Butyricicoccus__Clostridium_XlVa	0	0	1	0	0	1	1	Lachnospiraceae	Ruminococcaceae
+Coprococcus	Roseburia	Coprococcus__Roseburia	0	0	0	0	1	1	1	Lachnospiraceae	Lachnospiraceae
+Dorea	Dorea	Dorea__Dorea	0	0	1	0	0	1	1	Lachnospiraceae	Lachnospiraceae
+Dorea	Prevotella	Dorea__Prevotella	0	0	1	0	0	1	1	Prevotellaceae	Lachnospiraceae
+Dorea	Roseburia	Dorea__Roseburia	0	0	1	0	0	1	1	Lachnospiraceae	Lachnospiraceae
+Fusicatenibacter	Ruminococcus2	Fusicatenibacter__Ruminococcus2	0	0	1	0	0	1	1	Lachnospiraceae	Lachnospiraceae
+Fusicatenibacter	Gemmiger	Fusicatenibacter__Gemmiger	0	0	1	0	0	1	1	Ruminococcaceae	Lachnospiraceae
+Haemophilus	Streptococcus	Haemophilus__Streptococcus	0	0	1	0	0	1	1	Streptococcaceae	Pasteurellaceae
+Oscillibacter	Oscillibacter	Oscillibacter__Oscillibacter	0	0	1	0	0	1	1	Ruminococcaceae	Ruminococcaceae
+Ruminococcus2	Ruminococcus2	Ruminococcus2__Ruminococcus2	0	0	1	0	0	1	1	Lachnospiraceae	Lachnospiraceae

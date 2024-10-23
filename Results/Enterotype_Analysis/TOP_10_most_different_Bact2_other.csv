@@ -1,0 +1,11 @@
+,node1,node2,Bact2_Bact2_diff,BACT2_other_diff,Diff_in_diff,abs_diff_in_diff,Genus_node1,Family_node1,Genus_node2,Family_node2
+1,Node43,Node118,-0.001757454,-0.492678237,0.490920782,0.490920782,NA,Lachnospiraceae,Ruminococcus,Ruminococcaceae
+2,Node93,Node14,-0.020478101,-0.3039803,0.283502199,0.283502199,NA,NA,NA,Lachnospiraceae
+3,Node43,Node39,-0.00325165,-0.285703488,0.282451839,0.282451839,NA,Lachnospiraceae,NA,Lachnospiraceae
+4,Node86,Node43,-0.026608537,-0.387293763,0.360685226,0.360685226,Clostridium_IV,Ruminococcaceae,NA,Lachnospiraceae
+5,Node77,Node54,-0.028135665,-0.309906859,0.281771194,0.281771194,Faecalibacterium,Ruminococcaceae,Coprococcus,Lachnospiraceae
+6,Node84,Node54,0.062327148,-0.21916155,0.281488699,0.281488699,NA,Ruminococcaceae,Coprococcus,Lachnospiraceae
+7,Node85,Node56,0.041804955,-0.305551264,0.347356219,0.347356219,Oscillibacter,Ruminococcaceae,NA,Lachnospiraceae
+8,Node77,Node76,0.032904034,-0.296460697,0.329364731,0.329364731,Faecalibacterium,Ruminococcaceae,Faecalibacterium,Ruminococcaceae
+9,Node86,Node79,-0.033973522,-0.352299997,0.318326475,0.318326475,Clostridium_IV,Ruminococcaceae,Faecalibacterium,Ruminococcaceae
+10,Node85,Node84,0.199074941,-0.194532654,0.393607595,0.393607595,Oscillibacter,Ruminococcaceae,NA,Ruminococcaceae

@@ -1,0 +1,139 @@
+---
+title: "Analysis Enterotype FM"
+author: "Federico Melograna"
+date: "2024-05-23"
+output: html_document
+---
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+
+```{r}
+setwd("C:/Users/fmelo/Desktop/Microbiome_drug_repurpose_project/Behnam_analysis_Enterotype/Analysis_Enterotype")
+
+w0_Sequences_nodes <- read.csv("w0_Sequences_nodes.txt", sep="")
+ASV_taxonomic_annotation <- read.delim("C:/Users/fmelo/Desktop/Microbiome_drug_repurpose_project/Behnam_analysis_Enterotype/Analysis_Enterotype/ASV_taxonomic_annotation.txt")
+
+
+node_dist_bact2_bact2 <- read.csv("../node_dist_bact2_bact2.csv")
+
+node_dist_bact2_other <- read.csv("../node_dist_bact2_other.csv")
+
+library(dplyr)
+library(tidyr)
+library(xlsx)
+
+
+
+matched_nodes_diff = node_dist_bact2_bact2 |> dplyr::rename(bact2_bact2_rank_sum_dist = rank_sum_dist, bact2_bact2_p_val = p_val) |>
+  merge(node_dist_bact2_other, by = "node") |> 
+  dplyr::rename(bact2_other_rank_sum_dist = rank_sum_dist, bact2_other_p_val = p_val) |>
+  mutate(sign_bact2 = ifelse(bact2_bact2_p_val < 0.05,1,0), sign_other = ifelse(bact2_other_p_val < 0.05,1,0)) 
+
+
+matched_nodes_diff|>
+  select(starts_with("sign")) |> table() # |> write.xlsx(file = "Analysis_Enterotype.xlsx", sheetName = "Significant Nodes table", append = F)
+  # View()
+
+
+
+
+#           sign_other
+# sign_bact2   0  1
+#           0 91 12
+#           1 10 11
+
+
+matched_nodes_diff |> merge(w0_Sequences_nodes, by.x = "node", by.y = "Node_list") |>
+  merge(ASV_taxonomic_annotation, by.x = "NAME", by.y = "ASV") |> 
+  mutate(Microbe_name = paste0(Family, " ", Genus)) |> 
+  mutate(Glob_Sign = paste0(sign_bact2, "_", sign_other) ) |>
+  select(Microbe_name, Glob_Sign)|> table() |> as.data.frame.matrix() |>
+  rename(No_sign="0_0", Sign_only_Bact = "0_1", Sign_only_Other = "1_0", Both_Sign = "1_1") # |>
+  # write.xlsx(file = "Analysis_Enterotype.xlsx", sheetName = "Matrix Significant by Full name", append = T)
+  # View()
+
+        
+matched_nodes_diff |> merge(w0_Sequences_nodes, by.x = "node", by.y = "Node_list") |>
+  merge(ASV_taxonomic_annotation, by.x = "NAME", by.y = "ASV") |> 
+  mutate(Microbe_name = paste0(Family, " ", Genus)) |> 
+  mutate(Glob_Sign = paste0(sign_bact2, "_", sign_other) ) |>
+  select(Family, Glob_Sign)|> table() |> as.data.frame.matrix() |>
+  rename(No_sign="0_0", Sign_only_Bact = "0_1", Sign_only_Other = "1_0", Both_Sign = "1_1") # |>
+  # write.xlsx(file = "Analysis_Enterotype.xlsx", sheetName = "Matrix Significant by Family", append = T)
+# View()
+
+
+
+
+matched_nodes_diff |> merge(w0_Sequences_nodes, by.x = "node", by.y = "Node_list") |>
+  merge(ASV_taxonomic_annotation, by.x = "NAME", by.y = "ASV") |> 
+  mutate(diff = bact2_bact2_rank_sum_dist - bact2_other_rank_sum_dist ) |> 
+  arrange(desc(abs(diff))) |> rename(Bact2_Bact2_minus_Bact2_other_diff_in_diff = diff)  #|>
+  # write.xlsx(file = "Analysis_Enterotype.xlsx", sheetName = "Diff in Diff per microbe", append = T)
+
+  # View()
+
+
+matched_nodes_diff |> merge(w0_Sequences_nodes, by.x = "node", by.y = "Node_list") |>
+  merge(ASV_taxonomic_annotation, by.x = "NAME", by.y = "ASV") |> 
+  mutate(diff = bact2_bact2_rank_sum_dist - bact2_other_rank_sum_dist ) |>
+  mutate(Microbe_name = paste0(Family, " ", Genus)) |> 
+  mutate(Glob_Sign = paste0(sign_bact2, "_", sign_other) ) |>
+  group_by(Family, Glob_Sign) %>%
+  summarise(
+    abs_diff = sum(abs(diff)),    # Sum of absolute values of diff
+    total_diff = sum(diff), 
+    count = n())# Sum of non-absolute values of diff
+   # |> View()
+
+
+
+matched_nodes_diff |> merge(w0_Sequences_nodes, by.x = "node", by.y = "Node_list") |>
+  merge(ASV_taxonomic_annotation, by.x = "NAME", by.y = "ASV") |> 
+  mutate(diff = bact2_bact2_rank_sum_dist - bact2_other_rank_sum_dist ) |>
+  mutate(Microbe_name = paste0(Family, " ", Genus)) |> 
+  mutate(Glob_Sign = paste0(sign_bact2, "_", sign_other) ) |>
+  group_by(Family) %>%
+  summarise(
+    abs_Bact2_Bact2_minus_Bact2_other_diff_in_diff = abs(mean((diff))),    # Sum of absolute values of diff
+    Bact2_Bact2_minus_Bact2_other_diff_in_diff = mean(diff), 
+    bact2_sign = sum(sign_bact2),
+    other_sign = sum(sign_other),
+    both_sign = sum(sign_other*sign_bact2),
+    count = n() ) |>  arrange(desc(abs_Bact2_Bact2_minus_Bact2_other_diff_in_diff)) #  write.xlsx(file = "Analysis_Enterotype.xlsx", sheetName = "Averaged diff in diff per Family", append = T)
+
+# View()
+
+
+
+
+```
+
+
+```{r cars}
+
+
+
+
+matched_nodes_diff |> merge(w0_Sequences_nodes, by.x = "node", by.y = "Node_list") |>
+  merge(ASV_taxonomic_annotation, by.x = "NAME", by.y = "ASV") |> 
+  mutate(diff = bact2_bact2_rank_sum_dist - bact2_other_rank_sum_dist ) |>
+  mutate(Microbe_name = paste0(Family, " ", Genus)) |> 
+  mutate(Glob_Sign = paste0(sign_bact2, "_", sign_other) ) |>
+  group_by(Microbe_name) %>%
+  summarise(
+    abs_Bact2_Bact2_minus_Bact2_other_diff_in_diff = abs(mean(diff)),    # Sum of absolute values of diff
+    Bact2_Bact2_minus_Bact2_other_diff_in_diff = mean(diff), 
+    bact2_sign = sum(sign_bact2),
+    other_sign = sum(sign_other),
+    both_sign = sum(sign_other*sign_bact2),
+    count = n()# Sum of non-absolute values of diff
+  ) |>  arrange(desc(abs_Bact2_Bact2_minus_Bact2_other_diff_in_diff)) # |> write.xlsx(file = "Analysis_Enterotype.xlsx", sheetName = "Averaged diff in diff per Genus", append = T)
+# View()
+```
