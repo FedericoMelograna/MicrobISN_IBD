@@ -10,9 +10,7 @@ library(data.table)
 
 # Parameters --------------------------------------------------------------
 
-eliminate = T # DO we want to eliminate the individuals highlighted in the MAGMA procedure?
-diagnosi = c("CD", "UC") ## diagnosi = c("CD","UC")
-terapia  =c("VDZ")# c("VDZ") # terapia = c("TNF", "UST", "VDZ")
+
 base_dir = "---"
 base_script = "ISN_construction.R"
 function_script = "ISN_functions.R"
@@ -21,13 +19,18 @@ function_script = "ISN_functions.R"
 # individual_map = "mapping_nameIndividual_SPARCC.txt"
 
 
+# OTU_dataset = "w0_n355_OTU_table.txt"
 # OTU_dataset = "w14_n188_OTU_table.txt" # DATASET with the OTU TABLE
 OTU_dataset = "w24_n160_OTU_table.txt" # DATASET with the OTU TABLE
 
+
+# OTU_metadata = "w0_n355_metadata.txt"
 # OTU_metadata = "w14_n188_metadata.txt" # METADATA and covariates
 OTU_metadata = "w24_n160_metadata.txt" # METADATA and covariates
 
 ASV_annotation = "ASV_taxonomic_annotation.txt"
+
+# weeks = "0"
 # weeks = "14"
 weeks = "24"
 

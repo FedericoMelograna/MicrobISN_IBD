@@ -1,15 +1,5 @@
-# if (!exists("args")) {
-#   suppressPackageStartupMessages(library("argparse"))
-#   parser <- ArgumentParser()
-#   parser$add_argument("-a", "--arg1", type="character", defalt="a",
-#                       help="First parameter [default %(defult)s]")
-#   parser$add_argument("-b", "--arg2", type="character", defalt="b",
-#                       help="Second parameter [default %(defult)s]")
-#   args <- parser$parse_args()
-# }
 
 print (args)
-
 print(args$eliminate)
 print(args$diagnosi)
 print(args$terapia)
@@ -21,7 +11,7 @@ set.seed(123)
 # Parameters --------------------------------------------------------------
 eliminate = args$eliminate
 diagnosi = args$diagnosi ## diagnosi = c("CD","UC")
-terapia  =  args$terapia# c("VDZ") # terapia = c("TNF", "UST", "VDZ")
+terapia = args$terapia# c("VDZ") # terapia = c("TNF", "UST", "VDZ")
 setwd(base_dir)
 
 source (paste0(base_dir, "/Code/ISN_construction/",function_script ))
@@ -44,19 +34,16 @@ if ("Sequencing.QC" %in% colnames(w0_n335_OTU_table)){
   
 }
 
+# Import covariate
+
+# Import covariates and exclude no active disease -------------------------
+
 in_cov = read.delim(paste0(base_dir, "/Data/",OTU_metadata ))
 # ELIMINATE 0 and NA on the active disease!
 in_cov = in_cov[in_cov$active_disease_at_baseline != "0",]
-# Reg the re-runs, you are absolutely right - we need need to exclude the samples (rows) 
-# who are identified with 0 in column U ("active_disease_at_baseline") as indicated in "w0_n335_metadata" file. 
 
-
-# covariates_kept = c("Age", "Gender","FC.nummer", "Disease_duration", "Disease_location_baseline")
 import_cov = in_cov %>% dplyr::select(all_of(covariates_kept))
-# import_cov =in_cov %>% dplyr::select(c(Age, Gender,FC.nummer, Disease_duration, Disease_location_baseline))
 
-
-# identifier_disease = c("FC.nummer","Diagnosis", "Therapy_2" )
 filtering_disease = in_cov %>% dplyr::select(all_of(identifier_disease))
 head(filtering_disease); dim(filtering_disease)
 # check 
@@ -64,7 +51,6 @@ sum(is.na(import_cov)) ; head(import_cov)
 
 
 ASV_taxonomic_annotation <- read.delim(paste0(base_dir, "/Data/",ASV_annotation ) )
-
 
 
 # PREPROCESSING covariates ------------------------------------------------
@@ -108,6 +94,8 @@ rownames(covs_filt)= import_cov_final$FC.nummer
 
 group_selection = selecting_only_group(w0_n335_OTU_table, covs_filt, select = filtering_disease, diagnosi =diagnosi , terapia = terapia)
 otu_table_selected = group_selection[[1]] ; covariates_selected = group_selection[[2]] ; groupz = group_selection[[3]]
+
+## different covariates are non-informative, i.e., no variation, for different diagnosis (CD vs UC)
 if (dim(otu_table_selected)[1] != 0) {
   
   final = "group"
@@ -163,6 +151,7 @@ if (dim(otu_table_selected)[1] != 0) {
   tt = tryCatch( magma(data = dati,X = covariates) ,error=function(e) e, warning=function(w) w)
   
   
+  ## Eliminate sample
   if (eliminate == T & is(tt,"warning") ){
     ## if warning means that raise a warning, that there are sample to eliminate
     # first_warn = names(last.warning)[1]
@@ -211,8 +200,7 @@ if (dim(otu_table_selected)[1] != 0) {
   }
   
   curr_wd = getwd()
-  # dir.create(file.path(curr_wd, "LooNet"))
-  # try(magma(data = otu_table_eliminated,X = covariates ) )
+
   magma_Stool_AllCov <- magma(data = otu_table_eliminated,X = covariates) #,distrib = "ZIP")
   if (weeks == "0"){
   build_LOO_net(otu_table_eliminated, covariates, mapping_nameIndividual_SPARCC, weeks)
@@ -259,7 +247,6 @@ if (dim(otu_table_selected)[1] != 0) {
   graphical_printing(magma_Stool_AllCov, ll2, level = 5, dataset_match_taxa = df)
   graphical_printing(magma_Stool_AllCov, ll2, level = 6, dataset_match_taxa = df)
   
-  # LAYOUT = "C:/Users/fmelo/Desktop/Backup_Federico/work_microbiome/SPARCC_and_MAGMA/MAGMA_result_CORRECT_CONF_preprocessing_per_group_filtered_IND/LAYOUT_PHYLUM__graph.txt"
   # Do something, or tell me why it failed
   LAYOUT = paste0(base_dir, "/Graphs/","LAYOUT_PHYLUM__graph_4nodes.txt" )
   # IF POSSIBLE the layout will be the same as the one in the first group_CD_TNF
@@ -288,13 +275,12 @@ if (dim(otu_table_selected)[1] != 0) {
         continuous_or_binary = "CONTINUOUS",
         month = "",
         import_layout = LAYOUT
-        # substitute to the place where the "ORIGINAL" one is saved
       )
     
     },
-    # ... but if an error occurs, tell me what happened: 
+    # 
     error=function(error_message) {
-      message("This is my custom message.")
+      message("Investigate error")
       
       # The problem is that it breaks after having opened the png
       dev.off()
@@ -315,7 +301,6 @@ if (dim(otu_table_selected)[1] != 0) {
         continuous_or_binary = "CONTINUOUS",
         month = "",
         import_layout = "LAYOUT_PHYLUM__graph.txt"
-        # substitute to the place where the "ORIGINAL" one is saved
       )
   
     }
@@ -351,12 +336,11 @@ if (dim(otu_table_selected)[1] != 0) {
   
   lionessOutput_fin =  ISN_computation(files = files, global_net = global_net, global_net_vect = global_net_vect,
                                        lionessOutput = lionessOutput, Sequences_nodes = Sequences_nodes,matching_string= "MAGMA_continuous_Data")
-  # Calculation ISNs and average strenght -----------------------------------
+
   
   
   
-  
-  # WRITING -----------------------------------------------------------------
+  # SAVE RESULTS  -----------------------------------------------------------------
   
   dir.create(file.path(curr_wd,"ISNs"))
   setwd(file.path(curr_wd,"ISNs"))
@@ -374,7 +358,7 @@ if (dim(otu_table_selected)[1] != 0) {
   fwrite(Resulting_net[,-c(1,2)],file="Resulting_net_from_corr_eliminate_MAGMACONF.txt",
          sep = " ", row.names = TRUE ) # keeps the rownames
   
-  # Since is full of rows with just 0 --> we create a network with j --------
+  # Filter only edges that have 1 non-zero entry --------
   
   
   aa = apply(Resulting_net[,-c(1,2)], 1, function(x) sum(abs(x))) > 0# )
@@ -385,13 +369,6 @@ if (dim(otu_table_selected)[1] != 0) {
   
   fwrite(not_null[,-c(1,2)],file="Resulting_net_notNULL_MAGMACONF.txt",
          sep = " ", row.names = TRUE ) # keeps the rownames
-  
-  # arg1 = 1
-  # arg2 = 2
-  # system(paste("cmd.exe",arg1,arg2), input = paste('"C:\\Program Files\\R\\R-4.0.3/bin/Rscript.exe" "C:/Users/fmelo/Desktop/Backup_Federico/work_microbiome/SPARCC_and_MAGMA/MAGMA_result_CORRECT_CONF_preprocessing_per_group/Pipeline_and_functions/script.R'))
-  # args$arg1 = "c" 
-  # args$arg2 = 2
-
   not_null_no_node = not_null[not_null$reg != not_null$tar,]
   fwrite(not_null_no_node[,-c(1,2)],file="Resulting_net_notNULL_NONODE_MAGMACONF.txt",
          sep = " ", row.names = TRUE ) # keeps the rownames
