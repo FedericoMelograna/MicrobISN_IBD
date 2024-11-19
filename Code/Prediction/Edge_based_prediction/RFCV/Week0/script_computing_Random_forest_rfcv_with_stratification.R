@@ -94,15 +94,17 @@ setwd(paste0("RFCV", outcome_file))
 dir.create(file.path("RFCV_novel_strata"), showWarnings = FALSE)
 setwd("RFCV_novel_strata")
 
-
+## Replicate the entire cross validation process 10 times 
 rf.strat.cv <- replicate(10, rfcv_custom_strat(sample_data_num, sample_y, cv.fold=5, scale="log", step=0.7,
                                           mtry=function(p) max(1, floor(sqrt(p))), recursive=FALSE )#,
 , simplify =  F)  
 
+
+## Extract from the list of replication the importance for each variable and the AUC
 rf.strat.cv.importance_var <- sapply(rf.strat.cv, "[[", "importance_var")
 rf.strat.cv.AUC_perf <- sapply(rf.strat.cv, "[[", "AUC.performance")
 
-
+## Plot them
 png("novel_STRAT_graph_AUC_performances.png")
 par(mfrow = c(1,1))
 matplot(rf.strat.cv[[1]]$n.var, cbind(rowMeans(rf.strat.cv.AUC_perf), rf.strat.cv.AUC_perf), type="l",
@@ -110,6 +112,7 @@ matplot(rf.strat.cv[[1]]$n.var, cbind(rowMeans(rf.strat.cv.AUC_perf), rf.strat.c
         xlab="Number of variables", ylab="AUC perf")
 dev.off()
 
+## Average the AUC, 
 rf.strat.cv.averaged_AUC = (apply(rf.strat.cv.AUC_perf,1, mean))
 t_rf.strat.cv.averaged_AUC = t(rf.strat.cv.averaged_AUC)
 
@@ -117,6 +120,10 @@ dff.novel_STRAT.cv.averaged_AUC = data.frame("Features" = colnames(t_rf.strat.cv
 write.table(dff.novel_STRAT.cv.averaged_AUC, "FEATURES_results_novel_STRAT.txt",quote = F,sep = "\t",row.names = F, col.names = T)
 write.table(dff.novel_STRAT.cv.averaged_AUC[dff.novel_STRAT.cv.averaged_AUC$AUC == max(dff.novel_STRAT.cv.averaged_AUC$AUC),], "MAX_FEATURES_results_novel_STRAT.txt",quote = F,sep = "\t",row.names = F, col.names = T)
 max_auc_novel_STRAT = dff.novel_STRAT.cv.averaged_AUC[dff.novel_STRAT.cv.averaged_AUC$AUC == max(dff.novel_STRAT.cv.averaged_AUC$AUC),"AUC"]
+
+
+
+# Extract the top features (i.e., edges) with a ranking procedure  --------
 
 
 top25CE <- RankAggreg(t(rf.strat.cv.importance_var), 25, seed=100, rho=.01)

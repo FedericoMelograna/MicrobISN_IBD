@@ -21,7 +21,7 @@ setwd("---")
 path_base = "---"
 getwd()
 
-
+## List of folders, each one contains the ISNs of a combination diagnosis and therapy, i.e., CD and VDZ 
 files <- list.files(path=".", pattern="group*", 
                     full.names=TRUE, recursive=FALSE)
 curr_wd = getwd()

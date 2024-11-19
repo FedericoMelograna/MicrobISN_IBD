@@ -1,5 +1,5 @@
 .
-├── Edge_based_onlyRFCV_strat
+├── RFCV
 │   ├── Week0
 │   │   ├── CALLING_SCRIPT_random_forest_internal.R
 │   │   ├── script_computing_Random_forest_internal_v2.R
