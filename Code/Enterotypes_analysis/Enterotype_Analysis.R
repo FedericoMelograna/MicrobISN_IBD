@@ -1,7 +1,7 @@
-setwd("C:/Users/fmelo/Desktop/Microbiome_drug_repurpose_project/Behnam_analysis_Enterotype/Analysis_Enterotype")
+setwd("---/Analysis_Enterotype")
 
 w0_Sequences_nodes <- read.csv("w0_Sequences_nodes.txt", sep="")
-ASV_taxonomic_annotation <- read.delim("C:/Users/fmelo/Desktop/Microbiome_drug_repurpose_project/Behnam_analysis_Enterotype/Analysis_Enterotype/ASV_taxonomic_annotation.txt")
+ASV_taxonomic_annotation <- read.delim("---/Analysis_Enterotype/ASV_taxonomic_annotation.txt")
 
 
 node_dist_bact2_bact2 <- read.csv("../node_dist_bact2_bact2.csv")
