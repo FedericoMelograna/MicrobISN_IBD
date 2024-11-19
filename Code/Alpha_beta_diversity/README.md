@@ -27,4 +27,4 @@ An example of the result is shown here, for the Alpha and Beta diversity of coho
 ![image](../../images/Violin_Shannon_alphadiv_Endoscopic.png)
 
 ### Beta Diversity:
-![image](../../images/Beta_
+![image](../../images/Beta_diversity_per_Responder_Endoscopic_outcome_combined.png)
