@@ -1,7 +1,7 @@
 # LIMMA Calculation Code Documentation
 
 ## Overview
-This script is designed to perform differential network analysis using the LIMMA (Linear Models for Microarray Data) method. It calculates and analyzes the differences in microbial network connectivity between two conditions (responders and non-responders) based on specific outcomes (e.g., clinical, biomarker, or endoscopic outcomes). It processes the microbiome data, identifies significant edges (connections between taxa), and visualizes the results.
+This script is designed to perform differential network analysis using the LIMMA (Linear Models for Microarray Data) method, and is referred in section "Differential network analysis" of the paper. It calculates and analyzes the differences in microbial network connectivity between two conditions (responders and non-responders) based on specific outcomes (e.g., clinical, biomarker, or endoscopic outcomes). It processes the microbiome data, identifies significant edges (connections between taxa), and visualizes the results.
 
 ## Input
 - **Taxonomic annotation**: Metadata detailing taxa → genus → family → (higher taxonomic levels).
