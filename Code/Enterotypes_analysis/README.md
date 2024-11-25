@@ -1,6 +1,6 @@
 # Enterotype Analysis Code
 
-In the `Code/ISN_construction/` folder, there are the early stages of the Enterotype analysis, i.e., the calculation of the population-based networks and the ISNs that are the input for the analysis.  
+In the `Code/ISN_construction/` folder, there are the early stages of the Enterotype analysis, i.e., the calculation of the population-based networks and the ISNs that are the input for the analysis, referred to in the "Enterotype-based analysis" in the paper.  
 The analysis in this folder, on the contrary, are post-processing analyses after the Encoding/Decoding pipeline (PLEX.I) has been run. We refer to the Plex.I paper (https://pubmed.ncbi.nlm.nih.gov/37928248/) for details on the Encoding/Decoding procedures. 
 
 ## Input
