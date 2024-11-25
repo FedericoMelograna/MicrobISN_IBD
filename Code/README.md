@@ -1,15 +1,15 @@
 # Code
 Code for the ISN pipeline in Microbiome IBD data. In this folder, we collected the code to reproduce the various analyses.
 
-- In the Alpha_beta diversity subfolder, there is the code to analyze Alpha and Beta diversity for the various combinations of cohorts + time + treatment. Moreover, in the same folder, there are also the exploratory analyses on the abundance/fractional abundance, both represented as a stacked bar chart and a pie chart.
+- In the Alpha_beta diversity subfolder, there is the code to analyze Alpha and Beta diversity for the various combinations of cohorts + time + treatment (section "Alpha and Beta diversity" in the paper). Moreover, in the same folder, there are also the exploratory analyses on the abundance/fractional abundance, both represented as bar charft and pie chartf (section "Fractional abundance comparison").
 
-- The enterotype analysis is shown in the Enterotype_analysis folder, and a Markdown is also provided to guide the reader step-by-step. The analysis shown is the post-processing analysis after the Encoding/Decoding pipeline (PLEX.I) has been run. We refer to the Plex.I paper (https://pubmed.ncbi.nlm.nih.gov/37928248/) for details on the Encoding/decoding procedures.
+- The "Enterotype-based analysis" is shown in the Enterotype_analysis folder, and a Markdown is also provided to guide the reader step-by-step. The analysis shown is the post-processing analysis after the Encoding/Decoding pipeline (PLEX.I) has been run. We refer to the Plex.I paper (https://pubmed.ncbi.nlm.nih.gov/37928248/) for details on the Encoding/decoding procedures.
 
 - The "Grouping_LIMMA_results_shared_taxon" folder groups together the post-processing for the LIMMA analysis, where the significant taxa identified are compared among different cohorts, treatments, and time points.
 
 - The ISN_construction folder shows the steps to calculate the ISN starting from a MAGMA network built on population-specific data.
 
-- The LIMMA folder shows the LIMMA analysis to find the taxon-taxon interactions that are significantly different between responders and non-responders.
+- The LIMMA folder shows the LIMMA analysis ("Differential network analysis") to find the taxon-taxon interactions that are significantly different between responders and non-responders.
 
 - The Prediction folder collects the routines and codes to predict responder/non-responder outcomes for each cohort + time + treatment combination. In detail, the folder is divided into edge-based prediction, where the ISN-edges are used as features, and Matrices_metrics, where graph metrics calculated on the edges are the predictors. For both these subfolders, an SVM and an RF routine are implemented.
 
